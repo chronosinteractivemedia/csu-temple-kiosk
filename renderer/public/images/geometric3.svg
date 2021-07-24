@@ -1,0 +1,18 @@
+<svg width="2160" height="358" viewBox="0 0 2160 358" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="2160" height="358">
+<rect width="2160" height="358" fill="#C4C4C4"/>
+</mask>
+<g mask="url(#mask0)">
+<path d="M1.26172 613.439V0.261719L591.729 613.439H1.26172Z" fill="#347559"/>
+<path d="M1073.69 614.701H591.729L0 -1L1256.64 329.561L1073.69 614.701Z" fill="#276733"/>
+<path d="M1267.99 668.953L1255.37 333.346L1039.63 668.953H1267.99Z" fill="#26A06F"/>
+<path d="M1399.84 668.953L1792.85 207.178L1254.74 328.93L1259.16 668.953H1399.84Z" fill="#80CBAD"/>
+<path d="M1792.85 205.916L1921.54 232.411L1833.22 670.215H1397.94L1792.85 205.916Z" fill="#98B54B"/>
+<path d="M1920.28 233.673L2160 171.22V672.738H1833.22L1920.28 233.673Z" fill="#5BA8A0"/>
+<line x1="3.60781" y1="-4.46175" x2="602.25" y2="619.44" stroke="white" stroke-width="10"/>
+<line x1="1268.43" y1="313.306" x2="1032.5" y2="686.764" stroke="white" stroke-width="10"/>
+<line x1="1259.21" y1="684.151" x2="1254.79" y2="299.969" stroke="white" stroke-width="10"/>
+<line x1="1796.66" y1="209.153" x2="1387.57" y2="690.851" stroke="white" stroke-width="10"/>
+<line x1="1926.45" y1="225.162" x2="1838.49" y2="678.808" stroke="white" stroke-width="10"/>
+</g>
+</svg>

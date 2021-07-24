@@ -1,0 +1,58 @@
+@import '../../styles/include.scss';
+
+.component{
+	width: 100%;
+}
+
+.hero{
+	height: 56.25vw;
+	position: relative;
+}
+
+.content{
+	padding: 4vh 12vw 4vh 19.8vw ;
+	height: 62.35vh;
+}
+
+.grid{
+	display: flex;
+	margin-bottom: 10vh;
+}
+
+.title{
+	h2{
+		font-size: 45.5px;
+		font-weight: normal;
+		line-height: 150%;
+		margin: 0;
+	}
+	padding-right: 30%;
+}
+
+.body{
+	width: 70vw;
+	font-size: 19px;
+	height: 32vh;
+	overflow-y: scroll;
+	line-height: 138%;
+}
+
+.qrCode{
+	width: 30vw;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	> div{
+		margin-top: auto;
+	}
+}
+
+.geometric{
+	height:10vh;
+	width: 30%;
+	position: absolute;
+	background-repeat: no-repeat;
+	background-size: contain;
+	bottom: 6vh;
+	right:6vw;
+}

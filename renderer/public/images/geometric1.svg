@@ -1,0 +1,16 @@
+<svg width="2160" height="259" viewBox="0 0 2160 259" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="2160" height="259">
+<rect width="2160" height="259" fill="white"/>
+</mask>
+<g mask="url(#mask0)">
+<path d="M163.107 260.787L-200 165.82V260.787H163.107Z" fill="#276733"/>
+<path d="M-200 157.441V79.2329L460.576 146.268L718.94 262.183H168.693L-200 157.441Z" fill="#26A06F"/>
+<path d="M913.063 54.0947L468.955 146.268L716.147 263.58H1139.31L913.063 54.0947Z" fill="#80CBAD"/>
+<path d="M1128.13 263.58L910.27 55.4915L1738.43 69.4571L1647.66 263.58H1128.13Z" fill="#98B54B"/>
+<path d="M1644.17 262.183L1739.13 69.4573L2159.5 109.958V262.183H1644.17Z" fill="#5BA89F"/>
+<line x1="-34.2684" y1="202.676" x2="191.134" y2="268.199" stroke="white" stroke-width="10"/>
+<line x1="460.577" y1="141.73" x2="726.098" y2="264.461" stroke="white" stroke-width="10"/>
+<line x1="907.445" y1="48.3912" x2="1130.27" y2="262.066" stroke="white" stroke-width="10"/>
+<line x1="1741.92" y1="64.7673" x2="1645.26" y2="267.824" stroke="white" stroke-width="10"/>
+</g>
+</svg>

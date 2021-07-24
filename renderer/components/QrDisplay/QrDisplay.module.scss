@@ -1,0 +1,19 @@
+@import '../../styles/include.scss';
+.component{
+	width:100%;
+	display: inline-block;
+	margin-top: 20px;
+}
+.code{
+	width: 100px;
+	height: 100px;
+	margin-bottom: 20px;
+	display: inline-block;
+}
+.desc{
+	display: inline-block;
+	padding: 0 3.5vw;
+	font-size: 19px;
+	text-align: left;
+	font-weight: normal;
+}

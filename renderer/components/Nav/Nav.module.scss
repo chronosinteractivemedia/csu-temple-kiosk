@@ -1,0 +1,53 @@
+@import '../../styles/include.scss';
+.component{
+	height:176px;	
+	position: absolute;
+	left: 0;
+	bottom: 23vh;
+	z-index:10;
+	display: flex;
+	filter: drop-shadow(5px 5px 8px rgba(0,0,0,0.3));
+	transition: all 600ms $ease-out-quint;
+	transform: translate3d(-50vw,0,0);
+	&.isOpen{
+		transform: translate3d(0,0,0);
+	}
+}
+.head{
+	height: 100%;
+	width: 163px;
+	background-size: auto 100%;
+	background-position: right center;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	position: relative;
+}
+.body{
+	width:50vw;
+	height:100%;
+	background-color: $white;
+	// border: 2.5px solid transparentize(#59595B, 0.66);
+	border-right: 0;
+	border-left: 0;
+	padding: 4vw;
+}
+
+.items{
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	list-style-type: none;
+	li{
+		margin: 0;
+		padding: 0;
+	}
+	a{
+		font-size: 25px;
+		font-family: 'Roboto Slab';
+		font-weight: 100;
+		color: $orange;
+		text-decoration: none;
+	}
+}
+

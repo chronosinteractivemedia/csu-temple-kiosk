@@ -1,0 +1,25 @@
+$max-width: 1200px;
+$content-width: 1170px;
+
+$breakpoints: (
+  xl: ( min: 1200px ),
+  lg: ( min:769px, max:920px ),
+  md: ( min: 481px, max:768px ),
+  sm: ( min: 361px, max:480px ),
+  xs: ( max:360px )
+); // min widths are only used when 'true' is passed as second param to the responsive() mixin
+
+//colors
+
+$white: #ffffff;
+$black: #000000;
+$darkgray: #59595B;
+
+$green: #1E4D2B;
+$gold: #C8C372;
+$orange: #D9782D;
+$alfalfa: #C9D845;
+$canyon: #CC5430;
+$slate: #105456;
+$reservior: #12A4B6;
+$sunshine: #ECC530;

@@ -1,0 +1,76 @@
+@import '../../styles/include.scss';
+
+.component{
+	width: 100%;
+}
+
+.items{
+	margin: 0;
+	padding: 0;
+	padding-left: 5px;
+	list-style-type: none;
+	a{
+		text-decoration: none;
+	}
+}
+
+.item{
+	margin: 0;
+	padding: 0;
+	display: flex;
+	margin-bottom: 20px;
+	height: 9.5vh;
+	border: 2px solid rgba(89, 89, 91, 0.2);
+	box-shadow: 0px 7px 6px -2px rgba(0, 0, 0, 0.1);
+	&.isActive{
+		outline: 5px solid $green;
+	}
+}
+
+.image{
+	position: relative;
+	width:35%;
+	height:100%;
+	filter: saturate(0.5);
+	&:after{
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		mix-blend-mode: color;
+	}
+	.items a:nth-child(3n-2) &:after{
+		background-color: $alfalfa;
+	}
+	.items a:nth-child(3n-1) &:after{
+		background-color: $reservior;
+	}
+	.items a:nth-child(3n) &:after{
+		background-color: $orange;
+	}
+	> div{
+		filter:grayscale(1) brightness(0.8) contrast(0.8);
+	}
+}
+.summary{
+	width: 65%;
+	padding: 1.2vh 1.5vh;
+	text-decoration: none;
+	h3{
+		color: $green;
+		font-size: 23px;
+		font-weight: 600;
+		margin-bottom: 0;
+		margin-top: 0;
+		margin-bottom: 0.5vh;
+		line-height: 150%;
+	}
+	p{
+		color: $black;
+		margin-top: 0;
+		font-size: 19px;
+		line-height: 150%;
+	}
+}

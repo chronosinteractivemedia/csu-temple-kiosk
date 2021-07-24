@@ -1,0 +1,15 @@
+@import '../../styles/include.scss';
+
+.component{
+	position: relative;
+	margin: 2vh 0;
+	font-size: 20px;
+}
+.section{
+	color: $green;
+	font-weight: bold;
+}
+
+.seperate{
+	margin: 0 1vw;
+}

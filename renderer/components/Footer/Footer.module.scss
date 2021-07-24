@@ -1,0 +1,77 @@
+@import '../../styles/include.scss';
+
+.component{
+	height: 6vh;
+	width: 100vw;
+	background-color: $green;
+	display: flex;
+}
+
+.sections{
+	margin-left: auto;
+	height:100%;
+	color: $white;
+	width:7vw;
+	background-color: rgba(255,255,255,0.3);
+	display: flex;
+	flex-direction: column;
+}
+.select{
+	height: 1vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1vw;
+	span{
+		background-color: #fff;
+		color: $black;
+		font-size: 10px;
+		padding: 1vw;
+	}
+}
+.up,.down,.select{
+	flex-grow: 1;
+}
+.up, .down{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	svg{
+		width: 50%;
+		height: auto;
+	}
+}
+.up svg{
+	transform: rotateZ(-90deg);
+}
+.down svg{
+	transform: rotateZ(90deg);
+}
+
+.playControls{
+	margin-left: auto;
+	height:100%;
+	color: $white;
+	width:7vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	svg{
+		width: 5vw;
+		height: auto;
+	}
+}
+.sliderControls{
+	margin-left: auto;
+	margin-right: 3vw;
+	height:100%;
+	color: $white;
+	width:7vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	svg{
+		width: 5vw;
+		height: auto;
+	}
+}
