@@ -73,7 +73,10 @@ export default function ListView({data}){
       )}
       <div className={styles.content}>
         <div className={styles.heading}>
-          {!! currentGroup && <ReactMarkdown children={currentGroup.summary} />}
+          {!! currentGroup && <>
+            {!!currentGroup.category && <h2 className={styles.summaryHead}>{currentGroup.category}</h2>}
+            <ReactMarkdown children={currentGroup.summary} />
+          </>}
         </div>
         {!!currentGroup && (
           <div className={styles.list}>
