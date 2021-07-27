@@ -23,10 +23,10 @@
 	h2{
 		font-size: 45.5px;
 		font-weight: normal;
-		line-height: 150%;
+		line-height: 115%;
 		margin: 0;
 	}
-	padding-right: 30%;
+	&.short{padding-right: 30%;}
 }
 
 .body{

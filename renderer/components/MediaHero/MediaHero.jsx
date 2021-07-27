@@ -21,11 +21,15 @@ export default function MediaHero({
             <ReactPlayer
               url={`https://www.vimeo.com/${vimeoId}`}
               playing={playing}
+              onPlay={() => setPlaying(true)}
+              onPause={() => setPlaying(false)}
+              onEnded={() => setPlaying(false)}
               config={{
                 vimeo: {
                   playerOptions: {
                     byline: false,
                     title: false,
+                    controls: true
                   }
                 },
               }}

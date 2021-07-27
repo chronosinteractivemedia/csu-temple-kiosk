@@ -1,0 +1,104 @@
+@import '../../styles/include.scss';
+
+.component{
+	width: 100%;
+}
+
+.hero{
+	height: 56.25vw;
+	position: relative;
+	background-color: $black;
+	> div{
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100% !important;
+		height: 100% !important;
+	}
+}
+
+.controls{
+	height: 6vh;	
+	border-bottom: 1px solid #59595B;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: $green;
+	padding: 1vh 5vw;
+	&.footer{
+		background-color: $green;
+		color: $white;
+	}
+	&:not(.footer){
+		.playPause{display: none;}
+	}
+}
+.prev, .next{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	svg{
+		display: inline-block;
+		font-size: 60px;
+	}
+	span{
+		display: block;
+		font-size: 18px;
+	}
+}
+.playPause{
+	font-size: 68px;
+	margin-top: 0.8vh;
+}
+
+.content{
+	padding: 2vh 12vw 4vh 19.8vw ;
+	height: 56.35vh;
+}
+
+
+.grid{
+	display: flex;
+	margin-bottom: 5vh;
+}
+
+.title{
+	h2{
+		font-size: 45.5px;
+		font-weight: normal;
+		line-height: 150%;
+		margin: 0;
+	}
+	padding-right: 30%;
+	&.short{padding-right: 30%;}
+}
+
+.body{
+	width: 70vw;
+	font-size: 19px;
+	height: 32vh;
+	overflow-y: scroll;
+	line-height: 138%;
+}
+
+.qrCode{
+	width: 30vw;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	> div{
+		margin-top: auto;
+	}
+}
+
+.geometric{
+	height:10vh;
+	width: 30%;
+	position: absolute;
+	background-repeat: no-repeat;
+	background-size: contain;
+	bottom: 6vh;
+	right:6vw;
+	opacity:0.4;
+}

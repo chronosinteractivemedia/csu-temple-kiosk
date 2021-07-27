@@ -46,16 +46,16 @@ export default function DetailView({ data }) {
       </div>
       <div className={styles.content}>
         {!!data.section && <Crumb section={data.section} title={data.title} />}
-        <div className={styles.title}>
+        <div className={`${styles.title} ${data.qrCode ? styles.short : ''}`}>
           <h2>{data.title}</h2>
         </div>
         <div className={styles.grid}>
           <div className={styles.body}>
             <ReactMarkdown children={data.body} />
           </div>
-          <div className={styles.qrCode}>
+          {!!data.qrCode && <div className={styles.qrCode}>
             {!!data.qrUrl && <QrDisplay url={data.qrUrl} description={data.qrTitle} />}
-          </div>
+          </div>}
         </div>
         {!!data.section && <Crumb section={data.section} title={data.title} />}
       </div>
