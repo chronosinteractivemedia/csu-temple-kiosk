@@ -37,6 +37,7 @@ export default function DetailView({ data }) {
       <div className={styles.hero}>
         <MediaHero
           images={data.images && data.images.length ? data.images : false}
+          imageStyle="contain"
           vimeoId={data.vimeoId}
           playing={mediaPlaying}
           setPlaying={setMediaPlaying}

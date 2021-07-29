@@ -6,6 +6,7 @@ import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 export default function ImageSlider({
   images,
+  imageStyle,
   currentSlide,
   setCurrentSlide,
 }) {
@@ -34,7 +35,8 @@ export default function ImageSlider({
               <Image
                 src={`${imgUrl}${img.url}`}
                 layout="fill"
-                objectFit="cover"
+                objectFit={imageStyle}
+                objectPosition={imageStyle === 'contain' ? '12vw bottom' : 'center center'}
               />
               {!!img.caption && (
                 <div className={styles.desc}>{img.caption}</div>

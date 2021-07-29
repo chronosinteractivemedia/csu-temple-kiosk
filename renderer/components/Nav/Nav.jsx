@@ -19,6 +19,7 @@ export default function Nav({items}){
         <li><Link href="/list/5" passHref><a>Autism</a></Link></li>
         <li><Link href="/list/3" passHref><a>Biography</a></Link></li>
         <li><Link href="/landing/video" passHref><a>Videos</a></Link></li>
+        <li><Link href="/landing/publications" passHref><a>Publications</a></Link></li>
       </ul>
     </div>
     <div className={styles.head} onClick={() => setIsOpen(!isOpen)}style={{backgroundImage: `url(/images/menutab${isOpen ? 'close' : ''}.svg)`}}></div>

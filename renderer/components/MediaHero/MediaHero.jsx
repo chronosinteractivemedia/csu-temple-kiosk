@@ -6,6 +6,7 @@ import ImageSlider from '../ImageSlider/ImageSlider';
 
 export default function MediaHero({
   images,
+  imageStyle,
   vimeoId,
   currentSlide,
   setCurrentSlide,
@@ -29,8 +30,9 @@ export default function MediaHero({
                   playerOptions: {
                     byline: false,
                     title: false,
-                    controls: true
-                  }
+                    controls: true,
+                  },
+                  iframeParams: { fullscreen: 0 },
                 },
               }}
             />
@@ -47,7 +49,7 @@ export default function MediaHero({
       <div className={styles.component}>
         <div className={styles.wrapper}>
           <div className={styles.images}>
-            <ImageSlider images={images} currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} />
+            <ImageSlider images={images} imageStyle={imageStyle ? imageStyle : 'cover'} currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} />
           </div>
         </div>
       </div>

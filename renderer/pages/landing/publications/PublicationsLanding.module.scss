@@ -1,0 +1,190 @@
+@import '../../../styles/include.scss';
+
+.component{
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+	position: relative;
+}
+.hero{
+	width: 100vw;
+	height: 32vh;
+	position: relative;
+}
+.image{
+	width: 100%;
+	height: 100%;
+}
+
+.title{
+	display: inline-block;
+	position: absolute;
+	background-color: #fff;
+	text-transform: uppercase;
+	font-family: 'Roboto Slab';
+	color: $green;
+	font-size: 29px;
+	line-height: 29px;
+	font-weight: 400;
+	padding: 10px 60px;
+	bottom:-30px;
+	border-bottom: 30px solid $green;
+}
+
+.content{
+	padding: 3.5vh 10vw 4vh 20vw;
+	height: 62vh;
+}
+.head{
+	font-size: 22px;
+	line-height: 148%;
+	color:#59595B;
+	margin-bottom: 2vh;
+	height: 6.5vh;
+	overflow: hidden;
+}
+.highlights{
+	margin-left: -4vw;
+	padding-right: 5vw;
+}
+.hlList{
+	display: flex;
+	justify-content: space-between;
+}
+.hlImg{
+	width: 20vw;
+	height:25vw;
+	position: relative;
+	&.isActive{outline: 4px solid $green;}
+}
+.hlLink{
+	display: block;
+	color: $green;
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
+	font-size: 19px;
+}
+
+.heading{
+	font-size: 23px;
+	line-height: 150%;
+}
+
+.pubs{
+	position: relative;
+	margin-top: 4vh;
+	h2{
+		font-size: 35px;
+		font-weight: normal;
+	}
+}
+
+.filterToggle{
+	position: absolute;
+	right: 0;
+	top: 10px;
+	color: $green;
+	font-weight: bold;
+	font-size: 19px;
+	padding-right: 10vw;
+}
+
+.list{
+	width: 100%;
+	height: 16vh;
+	overflow-y: scroll;
+	padding-right:60px;
+}
+
+.pubItem{
+	font-size: 19px;
+	line-height: 137%;
+	margin-bottom: 2vh;
+}
+
+.filters{
+	position: absolute;
+	bottom:6.1vh;
+	width: 67vw;
+	left: 20vw;
+	background-color: $white;
+	border: 1px solid rgba(89, 89, 91, 0.2);
+	box-shadow: -2px -12px 20px -1px rgba(0, 0, 0, 0.1);
+}
+.filtersHead, .filtersFoot{
+	padding: 2vh 3vh;
+	border-bottom: 1px solid #59595B;
+	display: flex;
+	align-items: center;
+	h2{
+		margin: 0;
+	}
+}
+.filtersFoot{
+	border-top: 1px solid #595959;
+	border-bottom: 0;
+}
+.filtersClose{
+	margin-left: auto;
+	color: $green;
+	font-weight: bold;
+	font-size: 18px;
+	vertical-align: middle;
+	position: relative;
+	top:-6px;
+	cursor: pointer;
+	svg{
+		font-size: 32px;
+		position: relative;
+		top:9px;
+	}
+}
+.filtersBody{
+	display: flex;
+}
+.cats, .topics{
+	padding: 2vh;
+	h3{
+		width: 100%;
+		margin-top: 0;
+		margin-bottom: 2vh;
+	}
+}
+.cats{
+	width:65%;
+	display: flex;
+	flex-wrap: wrap;
+	.filter{
+		width: 50%;
+		padding-right: 2vw;
+	}
+	border-right: 1px solid #595959;
+}
+.topics{
+	width: 35%;
+}
+.filter{
+	margin-bottom: 1vh;
+	display: flex;
+	span{
+		width: calc(100% - 32px);
+		font-size: 18px;
+		line-height: 138%;
+	}
+}
+.checkbox{
+	width: 20px;
+	height: 20px;
+	border: 1px solid #595959;
+	margin-right: 10px;
+}
+.geometric{
+	height:10vh;
+	width: 100%;
+	position: absolute;
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	background-position: bottom left;
+	bottom: 6.2vh;
+}

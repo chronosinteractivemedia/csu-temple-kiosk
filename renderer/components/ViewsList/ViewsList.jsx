@@ -21,7 +21,7 @@ export default function ViewsList({heading, description, items, currentItemIndex
 							</div>
 							<div className={styles.summary}>
 								<h3>{item.title}</h3>
-								<p><TextTruncate line={2} text={item.summary} /></p>
+								<p><TextTruncate line={3} text={item.summary} /></p>
 							</div>
 						</li>
 					</a></Link>

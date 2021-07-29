@@ -81,7 +81,7 @@ export default function ListView({data}){
         {!!currentGroup && (
           <div className={styles.list}>
             <ViewsList
-              items={currentGroup.detailViews}
+              items={currentGroup.DetailListItems.map(o => o.detail_view)}
               currentItemIndex={currentItemIndex}
             />
           </div>
