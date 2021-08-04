@@ -1,0 +1,23 @@
+@import '../../styles/include.scss';
+
+.component{
+	height: 6vh;
+	padding: 0 6vw;
+}
+.tabs{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+.tab{
+	padding: 2.5vw 2.25vw 1.75vw 2.25vw;
+	font-size: 20px;
+	color: $green;
+	font-weight: bold;
+	&.isActive{
+		background-color: $white;
+		color: #595959;
+		font-weight: 400;
+	}
+}

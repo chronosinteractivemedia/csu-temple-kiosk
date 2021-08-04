@@ -14,6 +14,7 @@ export default function ListView({data}){
   const [currentItemIndex, setCurrentItemIndex] = useState();
   const [accessibilityTimer, setAccessibilityTimer] = useState();
   const router = useRouter();
+
 	useEffect(() => {
 		if(data && data.listItems && Array.isArray(data.listItems)){
 			setCurrentGroup(data.listItems[0]);
@@ -34,7 +35,7 @@ export default function ListView({data}){
       setCurrentItemIndex(0);
     } else {
       const newStep = currentItemIndex + step;
-      if(newStep > -1 && newStep < currentGroup.detailViews.length){
+      if(newStep > -1 && newStep < currentGroup.DetailListItems.length){
         setCurrentItemIndex(newStep);
       }
     }
@@ -43,8 +44,8 @@ export default function ListView({data}){
   }
 
   function goToCurrentHighlight(){
-    if(currentGroup.detailViews[currentItemIndex]){
-      router.push(`/detail/${currentGroup.detailViews[currentItemIndex].id}`)
+    if(currentGroup.DetailListItems[currentItemIndex]){
+      router.push(`/detail/${currentGroup.DetailListItems[currentItemIndex].detail_view.id}`)
     }
   }
 
@@ -74,8 +75,9 @@ export default function ListView({data}){
       <div className={styles.content}>
         <div className={styles.heading}>
           {!! currentGroup && <>
-            {!!currentGroup.category && <h2 className={styles.summaryHead}>{currentGroup.category}</h2>}
-            <ReactMarkdown children={currentGroup.summary} />
+            {(!currentGroup.bigSummary && !!currentGroup.category) && <h2 className={styles.summaryHead}>{currentGroup.category}</h2>}
+            {!!currentGroup.bigSummary && <h2 className={styles.summaryHead}>{currentGroup.summary}</h2> }
+            {!currentGroup.bigSummary && <ReactMarkdown children={currentGroup.summary} />}
           </>}
         </div>
         {!!currentGroup && (

@@ -113,7 +113,7 @@ export default function PublicationsLanding({data, pubsData}){
       <div className={styles.hero}>
         <div className={styles.image}>
           <Image
-            src={`${imgUrl}/${data.image}`}
+            src={`${imgUrl}${data.image.url}`}
             layout="fill"
             objectFit="cover"
           />
@@ -232,8 +232,8 @@ export default function PublicationsLanding({data, pubsData}){
         </div>
       )}
       <Footer
-				setFiltersOpen={setFiltersOpen}
-				filtersOpen={filtersOpen}
+        setFiltersOpen={setFiltersOpen}
+        filtersOpen={filtersOpen}
         onHighlight={changeHighlight}
         onChooseHighlight={goToCurrentHighlight}
       />

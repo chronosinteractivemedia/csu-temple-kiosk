@@ -16,10 +16,7 @@ export default function VideoDetail({data, allData}){
     const thisIndex = allData.findIndex(o => o.id === data.id);
 
     function _getGraphicUrl() {
-      switch (data.graphicStyle) {
-        default:
-          return "/images/animals/cow.svg";
-      }
+      return `/images/animals/${data.graphicStyle}.svg`;
     }
 
     function go(dir){
@@ -64,7 +61,8 @@ export default function VideoDetail({data, allData}){
                     title: false,
                     speed: false,
                     controls: true
-                  }
+                  },
+                  iframeParams: { fullscreen: 0 },
                 },
               }}
             />

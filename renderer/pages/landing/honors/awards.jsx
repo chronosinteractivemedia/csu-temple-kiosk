@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import { BsTriangleFill } from 'react-icons/bs';
 import ReactMarkdown from 'react-markdown';
 import { Footer } from '../../../components/Footer/Footer';
 import Tabs from '../../../components/Tabs/Tabs';
@@ -12,6 +13,7 @@ export default function HonorsLanding({data}){
   const [currentItemIndex, setCurrentItemIndex] = useState();
   const [accessibilityTimer, setAccessibilityTimer] = useState();
   const router = useRouter();
+  const scrollParent = useRef();
 
 	function _getGeometricUrl(){
 		switch(data.graphicStyle){
@@ -56,39 +58,59 @@ export default function HonorsLanding({data}){
         </div>
       </div>
       <div className={styles.tabs}>
-        <Tabs tabs={[
-          {name: 'Overview', isActive: true, fn: () => true},
-          {name: 'Awards', isActive: false, fn: () => router.push('/landing/honors/awards')}
-        ]}/>
+        <Tabs
+          tabs={[
+            {
+              name: "Overview",
+              isActive: false,
+              fn: () => router.push("/landing/honors"),
+            },
+            { name: "Awards", isActive: true, fn: () => true },
+          ]}
+        />
       </div>
-      <div className={styles.highlights}>
-        <div className={styles.highlightsHeading}>
-          <h2>{data.featuredAwardsTitle}</h2>
-          <p>{data.featuredAwardsDescription}</p>
+      <div className={styles.timeline}>
+        <div className={styles.tlItems} ref={scrollParent}>
+          {data.allAwards.map((award) => {
+            if (award.detailView) {
+              return (
+                <Link href={`/award-detail/${award.detailView.id}?year=${award.year}`}>
+                  <div
+                    key={award.id}
+                    className={`${styles.tlItem} ${styles.hasDetail}`}
+                  >
+                    <div className={styles.tlYear}>{award.year}</div>
+                    <div className={styles.tlSummary}>
+                      <span>{award.title}</span>
+                    </div>
+                  </div>
+                </Link>
+              );
+            } else {
+              return (
+                <div key={award.id} className={styles.tlItem}>
+                  <div className={styles.tlYear}>{award.year}</div>
+                  <div className={styles.tlSummary}>
+                    <span>{award.title}</span>
+                  </div>
+                </div>
+              );
+            }
+          })}
         </div>
-        <div className={styles.hlList}>
-          {data.featuredAwards.map((award) => (
-            <Link href={award.detailView ? `/award-detail/${award.detailView.id}?year=${award.year}` : '#'}><div key={award.id} className={styles.hlItem}>
-              <div className={styles.hlWrap}>
-                <div className={styles.hlYear}>{award.year}</div>
-                <div className={styles.hlTitle}>{award.title}</div>
-                {!!award.detailView && (
-                  <div className={styles.hlExtra}> {award.detailView.preTitle} </div>
-                )}
-              </div>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
-      <div className={styles.content}>
-        <div className={styles.education}>
-          <h3>Education</h3>
-          <ReactMarkdown children={data.education} />
-        </div>
-        <div className={styles.memberships}>
-          <h3>Professional Memberships</h3>
-          <ReactMarkdown children={data.professionalMemberships} />
+        <div className={styles.tlControl}>
+          <div
+            className={styles.up}
+            onClick={() => scrollParent.current.scrollBy(0, -795)}
+          >
+            <BsTriangleFill />
+          </div>
+          <div
+            className={styles.down}
+            onClick={() => scrollParent.current.scrollBy(0, 795)}
+          >
+            <BsTriangleFill />
+          </div>
         </div>
       </div>
       <div

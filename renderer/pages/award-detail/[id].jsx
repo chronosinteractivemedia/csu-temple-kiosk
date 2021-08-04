@@ -7,19 +7,29 @@ import ReactMarkdown from 'react-markdown'
 import QrDisplay from "../../components/QrDisplay/QrDisplay";
 import { Footer } from "../../components/Footer/Footer";
 import Crumb from "../../components/Crumb/Crumb";
+import { useRouter } from "next/router";
+import Tabs from "../../components/Tabs/Tabs";
 
 export default function DetailView({ data }) {
 
   const [mediaPlaying, setMediaPlaying] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const router = useRouter();
+
+  const year = router.query.year;
 
   function _getGraphicUrl() {
     return `/images/animals/${data.graphicStyle}.svg`;
   }
 
+  const tabs = [
+    { name: "Overview", isActive: false, fn: () => router.push('/landing/honors') },
+    { name: "Awards", isActive: true, fn: () => router.back('/landing/honors/awards') },
+  ];
+
   const footer = () => {
       if(data.vimeoId){ 
-        return <Footer playing={mediaPlaying} setPlaying={setMediaPlaying} />
+        return <Footer playing={mediaPlaying} setPlaying={setMediaPlaying} tabs={<Tabs tabs={tabs} />}/>
       } else {
         if(data.images && data.images.length > 1){
           return <Footer currentSlide={currentSlide} setCurrentSlide={setCurrentSlide} />
@@ -34,7 +44,6 @@ export default function DetailView({ data }) {
       <div className={styles.hero}>
         <MediaHero
           images={data.images && data.images.length ? data.images : false}
-          imageStyle="contain"
           vimeoId={data.vimeoId}
           playing={mediaPlaying}
           setPlaying={setMediaPlaying}
@@ -42,25 +51,35 @@ export default function DetailView({ data }) {
           setCurrentSlide={setCurrentSlide}
         />
       </div>
+      <div className={styles.tabs}>
+        <Tabs tabs={tabs} />
+      </div>
       <div className={styles.content}>
         {!!data.section && <Crumb section={data.section} title={data.title} />}
-        <div className={`${styles.title} ${data.qrCode ? styles.short : ''}`}>
-          <h2>{data.title}</h2>
-        </div>
-        <div className={styles.grid}>
-          <div className={`${styles.body} ${!data.qrUrl ? styles.loneBody : ''}`}>
+        <div className={styles.layout}>
+          <div className={`${styles.title} ${data.qrCode ? styles.short : ""}`}>
+            {!!year && <h3>{year}</h3>}
+            <h2>{data.title}</h2>
+          </div>
+          <div
+            className={`${styles.body} ${!data.qrUrl ? styles.loneBody : ""}`}
+          >
             <ReactMarkdown children={data.body} />
           </div>
-          {!!data.qrUrl && <div className={styles.qrCode}>
-            {!!data.qrUrl && <QrDisplay url={data.qrUrl} description={data.qrTitle} />}
-          </div>}
+          {!!data.qrUrl && (
+            <div className={styles.qrCode}>
+              {!!data.qrUrl && (
+                <QrDisplay url={data.qrUrl} description={data.qrTitle} />
+              )}
+            </div>
+          )}
         </div>
-        {!!data.section && <Crumb section={data.section} title={data.title} />}
+        <div className={styles.tail}>
+          {!!data.section && (
+            <Crumb section={data.section} title={data.title} />
+          )}
+        </div>
       </div>
-      <div
-        className={styles.geometric}
-        style={{ backgroundImage: `url(${_getGraphicUrl()})` }}
-      />
       {footer()}
     </div>
   );

@@ -13,11 +13,9 @@ export default function DetailView({ data }) {
   const [mediaPlaying, setMediaPlaying] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
 
+
   function _getGraphicUrl() {
-    switch (data.graphicStyle) {
-      default:
-        return "/images/animals/cow.svg";
-    }
+    return `/images/animals/${data.graphicStyle}.svg`;
   }
 
   const footer = () => {
@@ -50,8 +48,10 @@ export default function DetailView({ data }) {
           <h2>{data.title}</h2>
         </div>
         <div className={styles.grid}>
-          <div className={`${styles.body} ${!data.qrUrl ? styles.loneBody : ''}`}>
-            <ReactMarkdown children={data.body} />
+          <div className={styles.fade}>
+            <div className={`${styles.body} ${!data.qrUrl ? styles.loneBody : ''}`}>
+              <ReactMarkdown children={data.body} />
+            </div>
           </div>
           {!!data.qrUrl && <div className={styles.qrCode}>
             {!!data.qrUrl && <QrDisplay url={data.qrUrl} description={data.qrTitle} />}

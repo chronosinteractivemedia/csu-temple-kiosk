@@ -8,48 +8,79 @@
 	height: 56.25vw;
 	position: relative;
 }
-
+.tabs{
+	background: rgba(89, 89, 91, 0.1);
+	height: 6vh;
+}
 .content{
-	padding: 4vh 12vw 4vh 19.8vw ;
-	height: 62.35vh;
+	padding: 3vh 12vw 4vh 19.8vw ;
+	height: 56.35vh;
+}
+
+.layout{
+	max-height: 38vh;
+	overflow:hidden;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 1;
+	position: relative;
 }
 
 .grid{
 	display: flex;
-	margin-bottom: 10vh;
+	flex-grow: 1;
 }
 
 .title{
+	display: block;
+	height: auto;
+	flex-shrink: 0;
+	h3{
+		margin-bottom: 0.5vh;
+		font-size: 23px;
+	}
 	h2{
-		font-size: 45.5px;
+		font-size: 42px;
 		font-weight: normal;
 		line-height: 115%;
 		margin: 0;
 	}
+	overflow-y: hidden;
 	&.short{padding-right: 30%;}
 }
-.fade{
-	width: 70vw;
-	@include scroll-fade();
-}
+
 .body{
+	margin-top: 1vh;
+	width: 70vw;
 	font-size: 19px;
-	height: 32vh;
 	overflow-y: scroll;
 	line-height: 138%;
 	&.loneBody{
 		padding-right: 6vw;
 	}
+	&:not(.loneBody){
+		padding-right: 20vw;
+	}
 }
 
 .qrCode{
-	width: 30vw;
+	position: absolute;
+	width: 20vw;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
+	bottom: 0;
+	right:0;
 	> div{
 		margin-top: auto;
 	}
+}
+
+.tail{
+	padding: 3vh 12vw 4vh 19.8vw ;
+	position: absolute;
+	bottom: 3.5vh;
+	left: 0;
 }
 
 .geometric{
