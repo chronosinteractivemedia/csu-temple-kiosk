@@ -10,6 +10,17 @@
 		transform: scale3d(1, 1, 1);
 	}
 }
+@keyframes sidefade {
+	0%{
+		opacity:0;
+		transform: scale3d(1.1, 1.1, 1) translate3d(0vw,5vh,0);
+	}
+	100%{
+		opacity:1;
+		transform: scale3d(1, 1, 1);
+	}
+}
+
 
 .component{
 	width: 100%;
@@ -72,11 +83,13 @@
 		font-size: 32px;
 		font-weight: normal;
 		line-height: 150%;
+		animation: sidefade 1000ms $ease-out-quint both;
 	}
 	p{
 		font-size: 26px;
 		line-height: 150%;
 		font-style: italic;
+		animation: sidefade 1200ms $ease-out-quint both;
 	}
 }
 .dots{

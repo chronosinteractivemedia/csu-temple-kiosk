@@ -51,9 +51,6 @@ export default function DetailView({ data }) {
           setCurrentSlide={setCurrentSlide}
         />
       </div>
-      <div className={styles.tabs}>
-        <Tabs tabs={tabs} />
-      </div>
       <div className={styles.content}>
         {!!data.section && <Crumb section={data.section} title={data.title} />}
         <div className={styles.layout}>
@@ -79,6 +76,10 @@ export default function DetailView({ data }) {
             <Crumb section={data.section} title={data.title} />
           )}
         </div>
+        <div
+          className={styles.geometric}
+          style={{ backgroundImage: `url(${_getGraphicUrl()})` }}
+        />
       </div>
       {footer()}
     </div>

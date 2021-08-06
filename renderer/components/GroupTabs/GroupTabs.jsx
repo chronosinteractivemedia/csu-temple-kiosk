@@ -8,8 +8,8 @@ export default function GroupTabs({style, groups, currentGroup, setCurrentGroup}
         {groups.map((group, index) => (
           <li
             key={index}
-            className={`${styles.tab}`}
-            onclick={() => setCurrentGroup(group)}
+            className={`${styles.tab} ${currentGroup === group && styles.isActive}`}
+            onClick={() => setCurrentGroup(group)}
           >
             {group.category}
           </li>

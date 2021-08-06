@@ -70,18 +70,26 @@ export default function VideoDetail({data, allData}){
       {controls()}
       <div className={styles.content}>
         <Crumb section="Videos" title={data.title} />
-        <div className={`${styles.title} ${data.qrCode ? styles.short : ''}`}>
-          <h2>{data.title}</h2>
-        </div>
-        <div className={styles.grid}>
-          <div className={styles.body}>
+        <div className={styles.layout}>
+          <div className={`${styles.title} ${data.qrCode ? styles.short : ""}`}>
+            <h2>{data.title}</h2>
+          </div>
+          <div
+            className={`${styles.body} ${!data.qrUrl ? styles.loneBody : ""}`}
+          >
             <ReactMarkdown children={data.body} />
           </div>
-          {!!data.qrUrl && <div className={styles.qrCode}>
-            {!!data.qrUrl && <QrDisplay url={data.qrUrl} description={data.qrTitle} />}
-          </div>}
+          {!!data.qrUrl && (
+            <div className={styles.qrCode}>
+              {!!data.qrUrl && (
+                <QrDisplay url={data.qrUrl} description={data.qrTitle} />
+              )}
+            </div>
+          )}
         </div>
-        <Crumb section="Videos" title={data.title} />
+        <div className={styles.tail}>
+          <Crumb section="Videos" title={data.title} />
+        </div>
       </div>
       <div
         className={styles.geometric}

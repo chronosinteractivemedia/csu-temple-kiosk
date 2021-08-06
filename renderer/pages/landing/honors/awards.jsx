@@ -43,6 +43,8 @@ export default function HonorsLanding({data}){
     }
   }
 
+  data.allAwards.sort((a,b) => b.year - a.year);
+
 	return (
     <div className={styles.component}>
       <div className={styles.hero}>

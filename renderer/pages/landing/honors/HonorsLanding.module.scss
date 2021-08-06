@@ -141,6 +141,10 @@
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
+	@include scroll-fade();
+	&:after{
+		bottom: 15.4vh;
+	}
 }
 
 .tlItems{
@@ -151,7 +155,7 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	padding-top: 1px;
+	padding-top: 45px;
 	scroll-behavior: smooth;
 }
 

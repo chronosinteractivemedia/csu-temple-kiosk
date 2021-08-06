@@ -13,17 +13,18 @@
 	height: 6vh;
 }
 .content{
-	padding: 3vh 12vw 4vh 19.8vw ;
-	height: 56.35vh;
+	padding: 2vh 12vw 4vh 19.8vw ;
+	height: 62.35vh;
 }
 
 .layout{
-	max-height: 38vh;
+	height: 36.6vh;
 	overflow:hidden;
 	display: flex;
 	flex-direction: column;
 	flex-shrink: 1;
 	position: relative;
+	@include scroll-fade();
 }
 
 .grid{
@@ -55,6 +56,7 @@
 	font-size: 19px;
 	overflow-y: scroll;
 	line-height: 138%;
+	padding-bottom: 2vh;
 	&.loneBody{
 		padding-right: 6vw;
 	}
@@ -71,6 +73,7 @@
 	flex-direction: column;
 	bottom: 0;
 	right:0;
+	z-index:2;
 	> div{
 		margin-top: auto;
 	}
@@ -79,7 +82,7 @@
 .tail{
 	padding: 3vh 12vw 4vh 19.8vw ;
 	position: absolute;
-	bottom: 3.5vh;
+	bottom: 1.8vh;
 	left: 0;
 }
 
@@ -89,7 +92,7 @@
 	position: absolute;
 	background-repeat: no-repeat;
 	background-size: contain;
-	bottom: 6vh;
+	bottom: 11vh;
 	right:6vw;
 	opacity:0.4;
 }

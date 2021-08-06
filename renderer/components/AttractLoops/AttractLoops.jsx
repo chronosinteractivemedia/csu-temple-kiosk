@@ -40,10 +40,10 @@ export default function AttractLoops({screens}){
       <div className={styles.contentContainer}>
         <div className={styles.content}>
           {!!currentScreen.largeQuote && (
-            <h2>&ldquo;{currentScreen.largeQuote}</h2>
+            <h2 key={currentScreen.largeQuote}>&ldquo;{currentScreen.largeQuote}</h2>
           )}
           {!!currentScreen.smallQuote && (
-            <p>{currentScreen.smallQoute}&rdquo;</p>
+            <p key={currentScreen.smallQoute}>{currentScreen.smallQoute}&rdquo;</p>
           )}
         </div>
         <ul className={styles.dots}>

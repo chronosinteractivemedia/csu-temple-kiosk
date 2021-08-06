@@ -14,7 +14,7 @@ export default function ViewsList({heading, description, items, currentItemIndex
 		<div className={styles.list}>
 			<ul className={styles.items}>
 				{items.map((item, idx) => (
-					<Link href={`/detail/${item.id}`} passHref><a>
+					<Link key={Math.random()} href={`/detail/${item.id}`} passHref><a>
 						<li className={`${styles.item} ${currentItemIndex === idx ? styles.isActive : ''}`} >
 							<div className={styles.image}>
 								{item.thumbnail && <Image src={`${imgUrl}${item.thumbnail.url}`} layout="fill" objectFit="cover" /> }

@@ -1,7 +1,19 @@
 @import '../../styles/include.scss';
 
+@keyframes slidein{
+	0%{
+		opacity:0;
+		transform: translate3d(10vw,0,0);
+	}
+	100%{
+		opacity:1;
+		transform: translate3d(0,0,0);
+	}
+}
+
 .component{
 	width: 100%;
+	overflow-x: hidden;
 }
 
 .items{
@@ -11,6 +23,9 @@
 	list-style-type: none;
 	a{
 		text-decoration: none;
+		display: block;
+		animation: slidein 300ms $ease-out-quint both;
+		@include animation-sequence(50ms, 4);
 	}
 }
 

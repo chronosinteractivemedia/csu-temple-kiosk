@@ -34,6 +34,11 @@
 .content{
 	padding: 4vh 14.6vw 4vh 19.8vw;
 	height: 62vh;
+	@include scroll-fade();
+	&:after{
+		height: 6vh;
+		bottom: 14.9vh;
+	}
 }
 
 .list{

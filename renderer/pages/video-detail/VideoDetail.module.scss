@@ -51,45 +51,79 @@
 	font-size: 68px;
 	margin-top: 0.8vh;
 }
-
 .content{
 	padding: 2vh 12vw 4vh 19.8vw ;
-	height: 56.35vh;
+	height: 62.35vh;
 }
 
+.layout{
+	padding-top: 2vh;
+	height: 36.6vh;
+	overflow:hidden;
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 1;
+	position: relative;
+	@include scroll-fade();
+}
 
 .grid{
 	display: flex;
-	margin-bottom: 5vh;
+	flex-grow: 1;
 }
 
 .title{
+	display: block;
+	height: auto;
+	flex-shrink: 0;
+	h3{
+		margin-bottom: 0.5vh;
+		font-size: 23px;
+	}
 	h2{
-		font-size: 45.5px;
+		font-size: 42px;
 		font-weight: normal;
-		line-height: 150%;
+		line-height: 115%;
 		margin: 0;
 	}
-	padding-right: 30%;
+	overflow-y: hidden;
 	&.short{padding-right: 30%;}
 }
 
 .body{
+	margin-top: 1vh;
 	width: 70vw;
 	font-size: 19px;
-	height: 32vh;
 	overflow-y: scroll;
 	line-height: 138%;
+	padding-bottom: 2vh;
+	&.loneBody{
+		padding-right: 6vw;
+	}
+	&:not(.loneBody){
+		padding-right: 20vw;
+	}
 }
 
 .qrCode{
-	width: 30vw;
+	position: absolute;
+	width: 20vw;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
+	bottom: 0;
+	right:0;
+	z-index:2;
 	> div{
 		margin-top: auto;
 	}
+}
+
+.tail{
+	padding: 3vh 12vw 4vh 19.8vw ;
+	position: absolute;
+	bottom: 1.8vh;
+	left: 0;
 }
 
 .geometric{
