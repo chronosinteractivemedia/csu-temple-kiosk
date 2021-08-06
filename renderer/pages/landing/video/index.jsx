@@ -7,7 +7,7 @@ import { Footer } from '../../../components/Footer/Footer';
 import { apiUrl, imgUrl } from '../../../config';
 import styles from './VideoLanding.module.scss';
 
-export default function VideoLanding({data, videoData}){
+export default function VideoLanding({data}){
 
 	const [currentItemIndex, setCurrentItemIndex] = useState();
 	const [accessibilityTimer, setAccessibilityTimer] = useState();
@@ -40,6 +40,8 @@ export default function VideoLanding({data, videoData}){
       router.push(`/video-detail/${videoData[currentItemIndex].id}`)
     }
   }
+
+  const videoData = data.videoListItems.map(i => i.videoView);
 
 	return (
     <div className={styles.component}>
@@ -95,8 +97,6 @@ export default function VideoLanding({data, videoData}){
 export async function getStaticProps(context) {
   const res = await fetch(`${apiUrl}/video-landing`);
   const data = await res.json();
-  const videoRes = await fetch(`${apiUrl}/video-views`);
-  const videoData = await videoRes.json();
   if (!data) return { notFound: true };
-  return { props: { data, videoData } };
+  return { props: { data } };
 }

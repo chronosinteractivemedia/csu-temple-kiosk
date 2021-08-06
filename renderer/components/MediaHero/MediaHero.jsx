@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import ReactPlayer from 'react-player'
-import {BsPlayFill, BsPauseFill} from 'react-icons/bs';
 import styles from './MediaHero.module.scss';
 import ImageSlider from '../ImageSlider/ImageSlider';
 

@@ -244,7 +244,7 @@ export default function PublicationsLanding({data, pubsData}){
 export async function getStaticProps(context) {
   const res = await fetch(`${apiUrl}/publication-landing`);
   const data = await res.json();
-  const pubsRes = await fetch(`${apiUrl}/publications?_limit=1000&_sort=body:ASC`);
+  const pubsRes = await fetch(`${apiUrl}/publications?_limit=1000&_sort=id:ASC`);
   const pubsData = await pubsRes.json();
   if (!data) return { notFound: true };
   return { props: { data, pubsData } };

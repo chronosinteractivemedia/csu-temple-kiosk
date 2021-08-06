@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import GroupTabs from "../../components/GroupTabs/GroupTabs";
 import MediaHero from "../../components/MediaHero/MediaHero";
-import { apiUrl } from "../../config";
+import { apiUrl, imgUrl } from "../../config";
 import styles from "./Detail.module.scss";
 import ReactMarkdown from 'react-markdown'
 import QrDisplay from "../../components/QrDisplay/QrDisplay";
 import { Footer } from "../../components/Footer/Footer";
 import Crumb from "../../components/Crumb/Crumb";
+import Image from "next/image";
 
 export default function DetailView({ data }) {
 
@@ -28,11 +29,12 @@ export default function DetailView({ data }) {
         }
       }
   };
-
+  console.log(data.images.length)
   return (
     <div className={styles.component}>
       <div className={styles.hero}>
-        <MediaHero
+        {(data.images.length === 1 && !data.vimeoId) && <div className={styles.singleImage} style={{backgroundImage: `url(${imgUrl}${data.images[0].url})`}} />}
+        {(data.images.length > 1 || data.vimeoId) && <MediaHero
           images={data.images && data.images.length ? data.images : false}
           imageStyle="contain"
           vimeoId={data.vimeoId}
@@ -40,27 +42,37 @@ export default function DetailView({ data }) {
           setPlaying={setMediaPlaying}
           currentSlide={currentSlide}
           setCurrentSlide={setCurrentSlide}
-        />
+        />}
       </div>
       <div className={styles.content}>
         {!!data.section && <Crumb section={data.section} title={data.title} />}
-        <div className={`${styles.title} ${data.qrCode ? styles.short : ''}`}>
-          <h2>{data.title}</h2>
-        </div>
-        <div className={styles.grid}>
-          <div className={`${styles.body} ${!data.qrUrl ? styles.loneBody : ''}`}>
+        <div className={styles.layout}>
+          <div className={`${styles.title} ${data.qrCode ? styles.short : ""}`}>
+            <h2>{data.title}</h2>
+          </div>
+          <div
+            className={`${styles.body} ${!data.qrUrl ? styles.loneBody : ""}`}
+          >
             <ReactMarkdown children={data.body} />
           </div>
-          {!!data.qrUrl && <div className={styles.qrCode}>
-            {!!data.qrUrl && <QrDisplay url={data.qrUrl} description={data.qrTitle} />}
-          </div>}
+          {!!data.qrUrl && (
+            <div className={styles.qrCode}>
+              {!!data.qrUrl && (
+                <QrDisplay url={data.qrUrl} description={data.qrTitle} />
+              )}
+            </div>
+          )}
         </div>
-        {!!data.section && <Crumb section={data.section} title={data.title} />}
+        <div className={styles.tail}>
+          {!!data.section && (
+            <Crumb section={data.section} title={data.title} />
+          )}
+        </div>
+        <div
+          className={styles.geometric}
+          style={{ backgroundImage: `url(${_getGraphicUrl()})` }}
+        />
       </div>
-      <div
-        className={styles.geometric}
-        style={{ backgroundImage: `url(${_getGraphicUrl()})` }}
-      />
       {footer()}
     </div>
   );
