@@ -3,9 +3,12 @@ import { BsPauseFill, BsPlayFill } from 'react-icons/bs';
 import styles from './Footer.module.scss';
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
-export function Footer({onHighlight, onChooseHighlight, playing, setPlaying, currentSlide, setCurrentSlide, setFiltersOpen, filtersOpen}){
+export function Footer({children, onHighlight, onChooseHighlight, playing, setPlaying, currentSlide, setCurrentSlide, setFiltersOpen, filtersOpen}){
 	return (
     <div className={styles.component}>
+			{!!children && <div className={styles.children}>
+				{children}
+			</div>}
 			{!!setFiltersOpen && <div className={styles.filterToggle} onClick={() => setFiltersOpen(!filtersOpen)}>{filtersOpen ? 'Close' : 'Open'} Filters</div>}
       {!!onHighlight && !!onChooseHighlight && (
         <Sections

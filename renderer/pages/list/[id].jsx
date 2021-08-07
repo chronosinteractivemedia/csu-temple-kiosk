@@ -21,6 +21,10 @@ export default function ListView({data}){
 		}
 	}, [data]);
 
+  useEffect(() => {
+    setCurrentItemIndex(null);
+  }, [currentGroup])
+
 	function _getGeometricUrl(){
 		switch(data.graphicStyle){
 			case 'MountainOne': return '/images/geometric1.svg';
@@ -96,6 +100,7 @@ export default function ListView({data}){
         {!!currentGroup && (
           <div className={styles.list}>
             <ViewsList
+              key={currentGroup.category}
               items={currentGroup.DetailListItems.map((o) => o.detail_view)}
               currentItemIndex={currentItemIndex}
             />
@@ -109,7 +114,14 @@ export default function ListView({data}){
       <Footer
         onHighlight={changeHighlight}
         onChooseHighlight={goToCurrentHighlight}
-      />
+      >
+        <GroupTabs
+          style="footer"
+          groups={data.listItems}
+          currentGroup={currentGroup}
+          setCurrentGroup={setCurrentGroup}
+        />
+      </Footer>
     </div>
   );
 }

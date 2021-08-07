@@ -26,3 +26,23 @@
 		font-weight: 400;
 	}
 }
+
+.component[data-style="footer"]{
+	padding: 0;
+	.tabs{
+		align-items: center;
+		padding-right: 10vw;
+	}
+	.tab{
+		background-color: transparent;
+		flex-grow: 1 1 0px;
+		padding:0 1.5vw;
+		color: $white;
+		line-height: 150%;
+		margin-top: -10px;
+		font-weight: normal;
+		&.isActive{
+			font-weight: bold;
+		}
+	}
+}
