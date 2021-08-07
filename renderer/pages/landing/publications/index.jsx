@@ -1,8 +1,8 @@
 
-import Image from 'next/image';
+import Image from '../../../components/Image/Image';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Footer } from '../../../components/Footer/Footer';
 import { apiUrl, imgUrl } from '../../../config';
@@ -19,7 +19,7 @@ export default function PublicationsLanding({data, pubsData}){
   const [topics, setTopics] = useState([]);
   const [filteredPubs, setFilteredPubs] = useState([]);
   const [filtersOpen, setFiltersOpen] = useState(false);
-
+  const scrollParent = useRef();
   const router = useRouter();
 
 	useEffect(() => {
@@ -60,6 +60,9 @@ export default function PublicationsLanding({data, pubsData}){
 		}
 	}, [pubsData, filters, categories])
 
+  useEffect(() => {
+    scrollParent.current.scrollTo(0, 0);
+  }, [filteredPubs]);
 
 	function _getGeometricUrl(){
 		switch(data.graphicStyle){
@@ -91,7 +94,6 @@ export default function PublicationsLanding({data, pubsData}){
   }
 
 	function toggleFilter(type, id){
-		console.log(type, id);
 		if(type === 'cat'){
 			if(filters.categories.includes(id)){
 				setFilters({...filters, categories: filters.categories.filter(o => o !== id)});
@@ -158,7 +160,7 @@ export default function PublicationsLanding({data, pubsData}){
           >
             Open Filters
           </div>
-          <div className={styles.list}>
+          <div className={styles.list} ref={scrollParent}>
             {filteredPubs.map((pubGroup) => (
               <div key={pubGroup.name} className={styles.pubGroup}>
                 <h3>{pubGroup.name}</h3>

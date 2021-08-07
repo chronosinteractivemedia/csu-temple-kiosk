@@ -1,9 +1,8 @@
-import Image from 'next/image';
+import Image from '../../../components/Image/Image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useRef, useState } from 'react';
 import { BsTriangleFill } from 'react-icons/bs';
-import ReactMarkdown from 'react-markdown';
 import { Footer } from '../../../components/Footer/Footer';
 import Tabs from '../../../components/Tabs/Tabs';
 import { apiUrl, imgUrl } from '../../../config';

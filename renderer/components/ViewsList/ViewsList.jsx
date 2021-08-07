@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styles from './ViewsList.module.scss';
-import Image from 'next/image';
+import Image from '../Image/Image';
 import Link from 'next/link';
 import { imgUrl } from '../../config';
 import TextTruncate from 'react-text-truncate';

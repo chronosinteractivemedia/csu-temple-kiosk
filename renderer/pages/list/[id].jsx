@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
+import Image from '../../components/Image/Image';
 import GroupTabs from '../../components/GroupTabs/GroupTabs';
 import ViewsList from '../../components/ViewsList/ViewsList';
 import { imgUrl } from '../../config';
@@ -9,6 +9,17 @@ import ReactMarkdown from 'react-markdown';
 import { Footer } from '../../components/Footer/Footer';
 import {useRouter} from 'next/router';
 
+function getQueryVariable(variable) {
+    const query = window.location.search.substring(1);
+    const vars = query.split('&');
+    for (let i = 0; i < vars.length; i++) {
+        const pair = vars[i].split('=');
+        if (decodeURIComponent(pair[0]) == variable) {
+            return decodeURIComponent(pair[1]);
+        }
+    }
+}
+
 export default function ListView({data}){
 	const [currentGroup, setCurrentGroup] = useState();
   const [currentItemIndex, setCurrentItemIndex] = useState();
@@ -16,10 +27,20 @@ export default function ListView({data}){
   const router = useRouter();
 
 	useEffect(() => {
-		if(data && data.listItems && Array.isArray(data.listItems)){
+    let queryGroup = parseInt(getQueryVariable('group'), 10);
+    if(queryGroup){
+      queryGroup = data.listItems.find(i => i.id === queryGroup);
+      if(queryGroup) setCurrentGroup(queryGroup);
+    } else {
 			setCurrentGroup(data.listItems[0]);
-		}
+    }
 	}, [data]);
+
+  useEffect(() => {
+    if(currentGroup){
+      router.replace(`${router.asPath.split('?')[0]}?group=${currentGroup.id}`, null, {shallow:true});
+    }
+  }, [currentGroup])
 
   useEffect(() => {
     setCurrentItemIndex(null);

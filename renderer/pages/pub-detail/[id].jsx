@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import GroupTabs from "../../components/GroupTabs/GroupTabs";
 import MediaHero from "../../components/MediaHero/MediaHero";
 import { apiUrl, imgUrl } from "../../config";
 import styles from "./Detail.module.scss";
@@ -7,7 +6,6 @@ import ReactMarkdown from 'react-markdown'
 import QrDisplay from "../../components/QrDisplay/QrDisplay";
 import { Footer } from "../../components/Footer/Footer";
 import Crumb from "../../components/Crumb/Crumb";
-import Image from "next/image";
 
 export default function DetailView({ data }) {
 

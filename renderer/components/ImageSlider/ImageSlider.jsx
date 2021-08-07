@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Image from "next/image";
+import Image from "../Image/Image";
 import { imgUrl } from "../../config";
 import styles from "./ImageSlider.module.scss";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";

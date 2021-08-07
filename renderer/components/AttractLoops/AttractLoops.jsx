@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './AttractLoops.module.scss';
-import Image from 'next/image';
+import Image from '../Image/Image';
 import { imgUrl } from '../../config';
 
 
