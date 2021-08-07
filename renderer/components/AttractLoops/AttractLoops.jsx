@@ -27,6 +27,7 @@ export default function AttractLoops({screens}){
       <div className={styles.imageContainer}>
         <div className={styles.image} key={currentScreen.image.url}>
           <Image
+            loader={({src}) => src}
             src={`${imgUrl}${currentScreen.image.url}`}
             layout="fill"
             objectFit="cover"

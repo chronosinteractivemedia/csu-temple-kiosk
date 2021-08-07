@@ -50,6 +50,7 @@ export default function HonorsLanding({data}){
       <div className={styles.hero}>
         <div className={styles.image}>
           <Image
+            loader={({src}) => src}
             src={`${imgUrl}${data.image.url}`}
             layout="fill"
             objectFit="cover"

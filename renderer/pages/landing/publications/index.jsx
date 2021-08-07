@@ -113,6 +113,7 @@ export default function PublicationsLanding({data, pubsData}){
       <div className={styles.hero}>
         <div className={styles.image}>
           <Image
+            loader={({src}) => src}
             src={`${imgUrl}${data.image.url}`}
             layout="fill"
             objectFit="cover"
@@ -137,6 +138,7 @@ export default function PublicationsLanding({data, pubsData}){
                     }`}
                   >
                     <Image
+                      loader={({ src }) => src}
                       src={`${imgUrl}${pub.detailView.thumbnail.url}`}
                       layout="fill"
                       objectFit="contain"

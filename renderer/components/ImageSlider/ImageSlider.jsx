@@ -33,6 +33,7 @@ export default function ImageSlider({
           >
             <div className={styles.slideWrapper}>
               <Image
+                loader={({src}) => src}
                 src={`${imgUrl}${img.url}`}
                 layout="fill"
                 objectFit={imageStyle}

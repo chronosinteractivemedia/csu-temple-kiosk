@@ -48,6 +48,7 @@ export default function VideoLanding({data}){
       <div className={styles.hero}>
         <div className={styles.image}>
           <Image
+            loader={({ src }) => src}
             src={`${imgUrl}${data.image.url}`}
             layout="fill"
             objectFit="cover"
@@ -66,6 +67,7 @@ export default function VideoLanding({data}){
                   <div className={styles.itemContainer}>
                     <div className={styles.thumbnail}>
                       <Image
+                        loader={({ src }) => src}
                         src={`${imgUrl}${video.thumbnail.url}`}
                         layout="fill"
                         objectFit="cover"

@@ -54,6 +54,7 @@ export default function ListView({data}){
       <div className={styles.hero}>
         <div className={styles.image}>
           <Image
+            loader={({ src }) => src}
             src={`${imgUrl}${data.image.url}`}
             layout="fill"
             objectFit="cover"
@@ -74,16 +75,28 @@ export default function ListView({data}){
       )}
       <div className={styles.content}>
         <div className={styles.heading}>
-          {!! currentGroup && <>
-            {(!currentGroup.bigSummary && !!currentGroup.category) && <h2 className={styles.summaryHead} key={currentGroup.category}>{currentGroup.category}</h2>}
-            {!!currentGroup.bigSummary && <h2 className={styles.summaryHead} key={currentGroup.summary}>{currentGroup.summary}</h2> }
-            {!currentGroup.bigSummary && <ReactMarkdown children={currentGroup.summary} />}
-          </>}
+          {!!currentGroup && (
+            <>
+              {!currentGroup.bigSummary && !!currentGroup.category && (
+                <h2 className={styles.summaryHead} key={currentGroup.category}>
+                  {currentGroup.category}
+                </h2>
+              )}
+              {!!currentGroup.bigSummary && (
+                <h2 className={styles.summaryHead} key={currentGroup.summary}>
+                  {currentGroup.summary}
+                </h2>
+              )}
+              {!currentGroup.bigSummary && (
+                <ReactMarkdown children={currentGroup.summary} />
+              )}
+            </>
+          )}
         </div>
         {!!currentGroup && (
           <div className={styles.list}>
             <ViewsList
-              items={currentGroup.DetailListItems.map(o => o.detail_view)}
+              items={currentGroup.DetailListItems.map((o) => o.detail_view)}
               currentItemIndex={currentItemIndex}
             />
           </div>
