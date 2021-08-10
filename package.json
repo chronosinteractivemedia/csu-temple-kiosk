@@ -7,6 +7,7 @@
   "main": "app/background.js",
   "scripts": {
     "dev": "nextron",
+    "safesync": "npm run check:connection && npm run fullsync || npm run launch:win",
     "fullsync": "npm run check:connection && npm run update && npm install && npm run grab:media && npm run build:win64 && npm run wait && npm run launch:win",
     "launch:win": "START ./dist/win-unpacked/CSUTGKIOSK.exe",
     "update": "git pull origin master",

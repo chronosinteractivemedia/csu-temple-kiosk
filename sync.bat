@@ -1,1 +1,1 @@
-npm run fullsync
+npm run safesync
