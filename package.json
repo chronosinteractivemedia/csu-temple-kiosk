@@ -7,10 +7,11 @@
   "main": "app/background.js",
   "scripts": {
     "dev": "nextron",
-    "fullsync": "npm run update && npm install && npm run grab:media && npm run build:win64 && npm launch:win",
+    "fullsync": "npm run check:connection && npm run update && npm install && npm run grab:media && npm run build:win64",
     "launch:win": "START ./dist/win-unpacked/CSUTGKIOSK.exe",
     "update": "git pull origin master",
     "grab:media": "node ./automation/grab-media.js",
+    "check:connection": "node ./automation/check-connection.js",
     "build": "nextron build",
     "build:all": "nextron build --all",
     "build:win32": "nextron build --win --ia32",
