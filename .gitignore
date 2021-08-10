@@ -4,3 +4,5 @@ node_modules
 app
 dist
 out
+renderer/public/uploads/*
+!renderer/public/uploads/.gitkeep

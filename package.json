@@ -7,6 +7,7 @@
   "main": "app/background.js",
   "scripts": {
     "dev": "nextron",
+    "grab:media": "node ./automation/grab-media.js",
     "build": "nextron build",
     "build:all": "nextron build --all",
     "build:win32": "nextron build --win --ia32",
@@ -16,6 +17,7 @@
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "electron-serve": "^1.1.0",
     "electron-store": "^7.0.2",
     "hammerjs": "^2.0.8",
