@@ -154,7 +154,9 @@ export default function PublicationsLanding({data, pubsData}){
           </div>
         </div>
         <div className={styles.pubs}>
-          <h2>Publications ({pubsData.length})</h2>
+          <h2>Publications ({filteredPubs.reduce((red, pubGroup) => {
+            return red + pubGroup.items.length;
+          }, 0)})</h2>
           <div
             className={styles.filterToggle}
             onClick={() => setFiltersOpen(true)}
@@ -227,13 +229,8 @@ export default function PublicationsLanding({data, pubsData}){
                 </div>
               ))}
             </div>
-          </div>
-          <div className={styles.filtersFoot}>
-            <div
-              className={styles.filtersClose}
-              onClick={() => setFiltersOpen(false)}
-            >
-              close <MdClose />
+            <div className={styles.apply} onClick={() => setFiltersOpen(false)}>
+              Apply
             </div>
           </div>
         </div>

@@ -34,7 +34,6 @@
 .content{
 	padding: 4vh 14.6vw 4vh 19.8vw;
 	height: 62vh;
-	@include scroll-fade();
 	&:after{
 		height: 6vh;
 		bottom: 14.9vh;
@@ -42,7 +41,7 @@
 }
 .scrollContainer{
 	width: calc(100% + 4vw);
-	height: 43vh;
+	height: 45vh;
 	padding-right: 30px;
 }
 .list{
@@ -70,11 +69,11 @@
 .itemContainer{
 	border: 2px solid rgba(89, 89, 91, 0.2);
 	box-shadow: 0px 14px 12px -4px rgba(0, 0, 0, 0.1);
-	height: 16vh;
+	height: 13.5vh;
 }
 .thumbnail{
 	position: relative;
-	height: 10vh
+	height: 9vh;
 }
 .icon{
 	position: absolute;
@@ -87,7 +86,8 @@
 }
 .itemTitle{
 	padding: 2vw;
-	font-size: 23px;
+	font-size: 18px;
+	line-height: 130%;
 	color: $green;
 	font-weight: 700;
 	height: 6vh;

@@ -55,7 +55,7 @@
 	height: 62vh;
 }
 .head{
-	font-size: 22px;
+	font-size: 20px;
 	line-height: 148%;
 	color:#59595B;
 	margin-bottom: 2vh;
@@ -98,7 +98,7 @@
 	font-weight: bold;
 	text-align: center;
 	width: 100%;
-	font-size: 19px;
+	font-size: 18px;
 	margin-top: 1vh;
 }
 
@@ -124,7 +124,7 @@
 	top: 10px;
 	color: $green;
 	font-weight: bold;
-	font-size: 19px;
+	font-size: 18px;
 	padding-right: 10vw;
    	animation: pop 600ms $ease-out-quint both;
 }
@@ -137,7 +137,7 @@
 }
 
 .pubItem{
-	font-size: 19px;
+	font-size: 18px;
 	line-height: 137%;
 	margin-bottom: 2vh;
 }
@@ -170,7 +170,7 @@
 	margin-left: auto;
 	color: $green;
 	font-weight: bold;
-	font-size: 18px;
+	font-size: 16px;
 	vertical-align: middle;
 	position: relative;
 	top:-6px;
@@ -213,6 +213,14 @@
 		font-size: 18px;
 		line-height: 138%;
 	}
+}
+.apply{
+	position: absolute;
+	bottom:20px;
+	right:20px;
+	padding: 12px 20px;
+	background-color: $green;
+	color: $white;
 }
 .checkbox{
 	width: 20px;

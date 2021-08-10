@@ -12,14 +12,16 @@
 .component{
 	position: relative;
 	margin: 2vh 0;
-	font-size: 20px;
+	font-size: 18px;
     animation: fade 600ms $ease-out-quint both;
 }
 .section{
 	color: $green;
 	font-weight: bold;
 }
-
 .seperate{
 	margin: 0 1vw;
+}
+.title{
+    @include ellipsis();
 }
