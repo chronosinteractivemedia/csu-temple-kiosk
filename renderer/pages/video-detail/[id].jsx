@@ -8,6 +8,7 @@ import ReactMarkdown from 'react-markdown'
 import ReactPlayer from "react-player";
 import { BsArrowLeft, BsArrowRight, BsPauseFill, BsPlayFill } from "react-icons/bs";
 import { useRouter } from "next/router";
+import Scroller from "../../components/Scroller/Scroller";
 
 export default function VideoDetail({data, allData}){
     const [playing, setPlaying] = useState();
@@ -77,7 +78,11 @@ export default function VideoDetail({data, allData}){
           <div
             className={`${styles.body} ${!data.qrUrl ? styles.loneBody : ""}`}
           >
-            <ReactMarkdown children={data.body} />
+            <Scroller>
+              <div className={styles.bodyWrapper}>
+                <ReactMarkdown children={data.body} />
+              </div>
+            </Scroller>
           </div>
           {!!data.qrUrl && (
             <div className={styles.qrCode}>

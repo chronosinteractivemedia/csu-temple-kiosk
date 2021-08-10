@@ -96,13 +96,16 @@
 	font-size: 19px;
 	overflow-y: scroll;
 	line-height: 138%;
-	padding-bottom: 2vh;
 	&.loneBody{
 		padding-right: 6vw;
 	}
 	&:not(.loneBody){
 		padding-right: 20vw;
 	}
+}
+
+.bodyWrapper{
+	padding-bottom: 2vh;
 }
 
 .qrCode{
