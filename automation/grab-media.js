@@ -46,7 +46,7 @@ function download(url, dest) {
     for(let image of images){
         console.log(`Downloading media ${i++} of ${images.length}`);
         try{
-            await download(`https://csu-tg-cms.onrender.com${image.url}`, `../renderer/public/${image.url}`);
+            await download(`https://csu-tg-cms.onrender.com${image.url}`, `renderer/public${image.url}`);
         } catch (e) {
             console.log(e);
         }
