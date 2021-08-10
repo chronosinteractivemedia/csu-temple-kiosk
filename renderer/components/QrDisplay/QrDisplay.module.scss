@@ -1,8 +1,19 @@
 @import '../../styles/include.scss';
+@keyframes fade{
+    0%{
+        opacity: 0;
+        transform: translate3d(50px, 0, 0);
+    }
+    100%{
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
 .component{
 	width:100%;
 	display: inline-block;
 	margin-top: 20px;
+    animation: fade 600ms $ease-out-quint both;
 }
 .code{
 	width: 100px;

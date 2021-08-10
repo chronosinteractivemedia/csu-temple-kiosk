@@ -40,16 +40,15 @@
 		bottom: 14.9vh;
 	}
 }
-
+.scrollContainer{
+	width: calc(100% + 4vw);
+	height: 43vh;
+	padding-right: 30px;
+}
 .list{
 	width: 100%;
-	height: 43vh;
-	overflow-y: scroll;
-	padding-right:60px;
 	display: flex;
 	flex-wrap: wrap;
-	width: calc(100% + 4vw);
-	margin-left: -2vw;
 	align-content: flex-start;
 }
 

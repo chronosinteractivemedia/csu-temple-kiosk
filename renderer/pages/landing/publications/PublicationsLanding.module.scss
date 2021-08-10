@@ -1,5 +1,24 @@
 @import '../../../styles/include.scss';
-
+@keyframes fade{
+    0%{
+        opacity: 0;
+        transform: translate3d(0, 50px, 0);
+    }
+    100%{
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes pop{
+    0%{
+        opacity: 0;
+        transform: translate3d(0, -50px, 0);
+    }
+    100%{
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
 .component{
 	height: 100vh;
 	width: 100vw;
@@ -42,9 +61,14 @@
 	margin-bottom: 2vh;
 	height: 6.5vh;
 	overflow: hidden;
+    animation: pop 600ms $ease-out-quint both;
 }
 .highlights{
 	padding-right: 6.5vw;
+}
+.hlItem{
+    animation: fade 600ms $ease-out-quint both;
+	@include animation-sequence(30ms, 6);
 }
 .hlList{
 	display: flex;
@@ -63,7 +87,7 @@
 		height: 100%;
 		top: 7%;
 		left: -10px;
-		background-color: rgba(0,0,0,0.15);
+		background-color: rgba(0,0,0,0.3);
 		transform: skew(0, -5deg) scaleY(1.00);
 		filter: blur(8px) contrast(200%);
 	}
@@ -88,6 +112,7 @@
 	margin-top: 4vh;
 	@include scroll-fade();
 	h2{
+    	animation: fade 600ms $ease-out-quint both;
 		font-size: 35px;
 		font-weight: normal;
 	}
@@ -101,6 +126,7 @@
 	font-weight: bold;
 	font-size: 19px;
 	padding-right: 10vw;
+   	animation: pop 600ms $ease-out-quint both;
 }
 
 .list{
@@ -117,6 +143,7 @@
 }
 
 .filters{
+    animation: fade 600ms $ease-out-quint both;
 	position: absolute;
 	bottom:6.1vh;
 	width: 67vw;
@@ -124,6 +151,7 @@
 	background-color: $white;
 	border: 1px solid rgba(89, 89, 91, 0.2);
 	box-shadow: -2px -12px 20px -1px rgba(0, 0, 0, 0.1);
+	z-index: 200;
 }
 .filtersHead, .filtersFoot{
 	padding: 2vh 3vh;

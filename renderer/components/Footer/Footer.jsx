@@ -9,7 +9,9 @@ export function Footer({children, onHighlight, onChooseHighlight, playing, setPl
 			{!!children && <div className={styles.children}>
 				{children}
 			</div>}
-			{!!setFiltersOpen && <div className={styles.filterToggle} onClick={() => setFiltersOpen(!filtersOpen)}>{filtersOpen ? 'Close' : 'Open'} Filters</div>}
+			{!!setFiltersOpen && <div className={styles.filterToggle} onClick={() => setFiltersOpen(!filtersOpen)}>
+				{filtersOpen ? 'Close Filters' : 'Open Filters to Sort List'}
+			</div>}
       {!!onHighlight && !!onChooseHighlight && (
         <Sections
           onHighlight={onHighlight}

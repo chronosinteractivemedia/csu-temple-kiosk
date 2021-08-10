@@ -1,5 +1,24 @@
 @import '../../styles/include.scss';
-
+@keyframes fade{
+    0%{
+        opacity: 0;
+        transform: translate3d(0, 50px, 0);
+    }
+    100%{
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes pop{
+    0%{
+        opacity: 0;
+        transform: translate3d(0, -50px, 0);
+    }
+    100%{
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
 .component{
 	height: 6vh;
 	padding: 0 6vw;

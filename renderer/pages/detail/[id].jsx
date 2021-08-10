@@ -9,6 +9,7 @@ import { Footer } from "../../components/Footer/Footer";
 import Crumb from "../../components/Crumb/Crumb";
 import { useRouter } from "next/router";
 import Tabs from "../../components/Tabs/Tabs";
+import Scroller from "../../components/Scroller/Scroller";
 
 export default function DetailView({ data }) {
 
@@ -58,10 +59,12 @@ export default function DetailView({ data }) {
             {!!year && <h3>{year}</h3>}
             <h2>{data.title}</h2>
           </div>
-          <div
-            className={`${styles.body} ${!data.qrUrl ? styles.loneBody : ""}`}
-          >
-            <ReactMarkdown children={data.body} />
+          <div className={`${styles.body} ${!data.qrUrl ? styles.loneBody : ""}`} >
+            <Scroller>
+              <div className={styles.bodyWrapper}>
+                <ReactMarkdown children={data.body} />
+              </div>
+            </Scroller>
           </div>
           {!!data.qrUrl && (
             <div className={styles.qrCode}>

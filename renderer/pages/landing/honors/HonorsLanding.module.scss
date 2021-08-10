@@ -1,6 +1,35 @@
 
 @import '../../../styles/include.scss';
-
+@keyframes fade{
+    0%{
+        opacity: 0;
+        transform: translate3d(0, 50px, 0);
+    }
+    100%{
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes pop{
+    0%{
+        opacity: 0;
+        transform: translate3d(0, -50px, 0);
+    }
+    100%{
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+@keyframes slide{
+    0%{
+        opacity: 0;
+        transform: translate3d(0, -50px, 0);
+    }
+    100%{
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
 .component{
 	height: 100vh;
 	width: 100vw;
@@ -55,8 +84,10 @@
 		font-size: 40px;
 		line-height: 115%;
 		margin: 0;
+    	animation: pop 600ms $ease-out-quint both;
 	}
 	p{
+    	animation: fade 600ms $ease-out-quint both;
 		margin: 0;
 		padding-left: 2vw;
 		display: block;
@@ -75,6 +106,8 @@
 .hlItem{
 	width: 25%;
 	padding: 1vw;
+    animation: fade 600ms $ease-out-quint both;
+	@include animation-sequence(35ms, 6);
 }
 .hlWrap{
 	cursor: pointer;
@@ -117,9 +150,11 @@
 }
 .education{
 	width: 45%;
+   	animation: fade 1000ms $ease-out-quint both;
 }
 .memberships{
 	width: 55%;
+   	animation: pop 800ms $ease-out-quint both;
 }
 
 .geometric{
@@ -203,7 +238,6 @@ $spacing: 84px;
 
 .tlControl{
 	margin-top: 2vh;
-
 	.up, .down{
 		width: 32px;
 		height: 32px;

@@ -10,6 +10,7 @@ import styles from './PublicationsLanding.module.scss'
 import _, { filter, groupBy, set } from 'lodash';
 import { MdClose } from "react-icons/md";
 import { ImCheckmark } from "react-icons/im";
+import Scroller from '../../../components/Scroller/Scroller';
 
 export default function PublicationsLanding({data, pubsData}){
   const [currentItemIndex, setCurrentItemIndex] = useState();
@@ -158,19 +159,21 @@ export default function PublicationsLanding({data, pubsData}){
             className={styles.filterToggle}
             onClick={() => setFiltersOpen(true)}
           >
-            Open Filters
+            Open Filters to Sort List
           </div>
           <div className={styles.list} ref={scrollParent}>
-            {filteredPubs.map((pubGroup) => (
-              <div key={pubGroup.name} className={styles.pubGroup}>
-                <h3>{pubGroup.name}</h3>
-                {pubGroup.items.map((pub) => (
-                  <div key={pub.id} className={styles.pubItem}>
-                    <ReactMarkdown children={pub.body} />
-                  </div>
-                ))}
-              </div>
-            ))}
+            <Scroller>
+              {filteredPubs.map((pubGroup) => (
+                <div key={pubGroup.name} className={styles.pubGroup}>
+                  <h3>{pubGroup.name}</h3>
+                  {pubGroup.items.map((pub) => (
+                    <div key={pub.id} className={styles.pubItem}>
+                      <ReactMarkdown children={pub.body} />
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </Scroller>
           </div>
         </div>
       </div>

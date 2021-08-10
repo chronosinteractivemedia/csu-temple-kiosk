@@ -1,0 +1,95 @@
+@import '../../styles/include.scss';
+@keyframes fade{
+    0%{
+        opacity: 0;
+        transform: translate3d(50px, 0, 0);
+    }
+    100%{
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+.component{
+    position: relative;
+    height:100%;
+    overflow: hidden;
+}
+.container{
+    height:100%;
+    width: calc(100% + 20px);
+    padding-right: 60px;
+    overflow-y: scroll;
+    &.hide{
+        padding-right: 20px;
+    }
+}
+.scroller{
+    position: absolute;
+    z-index: 100;
+    right: 0;
+    top: 1vh;
+    background-color: transparentize(#5b5b5b, 0.8);
+    border-radius: 20px;
+    width: 20px;
+    height: calc(100% - 90px);
+    animation: fade 600ms $ease-out-quint both;
+    &.hide{
+        display: none;
+    }
+}
+.handle{
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    width: 100%;
+    background-color: transparentize(#5b5b5b, 0.8);
+    height: 40%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    svg{
+        display: block;
+        pointer-events: none;
+        opacity: 0.5;
+        color: $white;
+    }
+}
+.arrows{
+    position: absolute;
+    bottom: 10px;
+    z-index: 100;
+    right: 0;
+    padding: 5px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    background-color: transparentize(#5b5b5b, 0.8);
+    width:20px;
+    border-radius: 20px;
+    &.hide{
+        display: none;
+    }
+    .up{
+        color: $black;
+        transform: rotateZ(-90deg);
+        width:18px;
+        height:18px;
+        svg{
+            width: 100%;
+            height: 100%;
+        }
+        margin-bottom: 6px;
+    }
+    .down{
+        color: $black;
+        transform: rotateZ(90deg);
+        width:18px;
+        height:18px;
+        svg{
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

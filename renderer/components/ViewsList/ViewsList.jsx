@@ -16,7 +16,7 @@ export default function ViewsList({heading, description, items, currentItemIndex
         <ul className={styles.items}>
           {items.map((item, idx) => (
             <Link href={`/detail/${item.id}`} passHref>
-              <a>
+              <a data-item-index={idx}>
                 <li
                   className={`${styles.item} ${
                     currentItemIndex === idx ? styles.isActive : ""

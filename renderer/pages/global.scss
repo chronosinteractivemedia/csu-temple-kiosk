@@ -5,7 +5,7 @@
 
 html{
     width:100vw;
-    overflow-x: hidden;
+    overflow: hidden;
     scroll-behavior: smooth;
     background-color: #fff;
 }
@@ -13,7 +13,7 @@ html{
 body{
     width: 100%;
     font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 *{
     @include font-smooth();

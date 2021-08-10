@@ -8,6 +8,7 @@ import styles from './List.module.scss';
 import ReactMarkdown from 'react-markdown';
 import { Footer } from '../../components/Footer/Footer';
 import {useRouter} from 'next/router';
+import Scroller from '../../components/Scroller/Scroller';
 
 function getQueryVariable(variable) {
     const query = window.location.search.substring(1);
@@ -120,11 +121,23 @@ export default function ListView({data}){
         </div>
         {!!currentGroup && (
           <div className={styles.list}>
-            <ViewsList
-              key={currentGroup.category}
-              items={currentGroup.DetailListItems.map((o) => o.detail_view)}
-              currentItemIndex={currentItemIndex}
-            />
+            {(currentGroup && currentGroup.DetailListItems.length > 3) ? (
+            <Scroller
+              scrollToIndex={currentItemIndex}
+            >
+              <ViewsList
+                key={currentGroup.category}
+                items={currentGroup.DetailListItems.map((o) => o.detail_view)}
+                currentItemIndex={currentItemIndex}
+              />
+            </Scroller>
+            ) : (
+              <ViewsList
+                key={currentGroup.category}
+                items={currentGroup.DetailListItems.map((o) => o.detail_view)}
+                currentItemIndex={currentItemIndex}
+              />
+            )}
           </div>
         )}
       </div>

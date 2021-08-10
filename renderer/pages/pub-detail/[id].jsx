@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import QrDisplay from "../../components/QrDisplay/QrDisplay";
 import { Footer } from "../../components/Footer/Footer";
 import Crumb from "../../components/Crumb/Crumb";
+import Scroller from "../../components/Scroller/Scroller";
 
 export default function DetailView({ data }) {
 
@@ -51,7 +52,11 @@ export default function DetailView({ data }) {
           <div
             className={`${styles.body} ${!data.qrUrl ? styles.loneBody : ""}`}
           >
-            <ReactMarkdown children={data.body} />
+            <Scroller>
+              <div className={styles.bodyWrapper}>
+                <ReactMarkdown children={data.body} />
+              </div>
+            </Scroller>
           </div>
           {!!data.qrUrl && (
             <div className={styles.qrCode}>
