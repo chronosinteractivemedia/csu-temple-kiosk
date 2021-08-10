@@ -92,7 +92,7 @@
 		padding-left: 2vw;
 		display: block;
 		width: 75%;
-		font-size: 18px;
+		font-size: 16px;
 		line-height: 150%;
 	}
 }
@@ -117,7 +117,7 @@
 	border: 2px solid #FFFFFF;
 }
 .hlYear{
-	font-size: 23px;
+	font-size: 22px;
 	line-height: 137%;
 	font-weight: bold;
 	display: inline-block;
@@ -128,11 +128,11 @@
 .hlTitle{
 	color: $green;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 14px;
 	min-height: 3vh;
 }
 .hlExtra{
-	font-size: 15px;
+	font-size: 14px;
 }
 
 .content{
@@ -145,7 +145,7 @@
 		margin-bottom: 2vh;
 		margin-top: 0;
 	}
-	font-size: 17px;
+	font-size: 16px;
 	line-height: 170%;
 }
 .education{
@@ -226,7 +226,7 @@ $spacing: 84px;
 	text-align: center;
 	width: 75px;
 	height: 75px;
-	font-size: 20px;
+	font-size: 18px;
 	line-height: 381%;
 	border-radius: 100%;
 	font-weight: bold;
@@ -258,7 +258,7 @@ $spacing: 84px;
 .tlSummary{
 	position: absolute;
 	width: 28vw;
-	font-size: 19px;
+	font-size: 18px;
 	right: calc(100% + 2vw);
 	text-align: right;
 	.tlItem:nth-child(odd) &{
