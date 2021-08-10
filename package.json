@@ -7,6 +7,8 @@
   "main": "app/background.js",
   "scripts": {
     "dev": "nextron",
+    "fullsync": "npm run update && npm install && npm run grab:media && npm run build:win64",
+    "update": "git pull origin master",
     "grab:media": "node ./automation/grab-media.js",
     "build": "nextron build",
     "build:all": "nextron build --all",
