@@ -2,9 +2,11 @@ import App from "next/app";
 import './global.scss';
 import "react-image-gallery/styles/scss/image-gallery.scss";
 import Nav from '../components/Nav/Nav';
+import SecretClose from "../components/SecretClose/SecretClose";
 import { apiUrl } from "../config";
 export default function MyApp({Component, pageProps, menuItems}){
   return <>
+    <SecretClose />
     <Nav items={menuItems} />
     <Component {...pageProps} />
   </>

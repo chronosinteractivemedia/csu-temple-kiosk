@@ -1,7 +1,7 @@
 import { app } from 'electron';
 import serve from 'electron-serve';
 import { createWindow } from './helpers';
-
+const { ipcMain } = require('electron')
 const isProd = process.env.NODE_ENV === 'production';
 
 if (isProd) {
@@ -34,3 +34,7 @@ if (isProd) {
 app.on('window-all-closed', () => {
   app.quit();
 });
+
+ipcMain.on('close-me', (event, arg) => {
+  app.quit();
+})
