@@ -57,6 +57,7 @@
 .head{
 	font-size: 20px;
 	line-height: 148%;
+	padding-right: 4vw;
 	color:#59595B;
 	margin-bottom: 2vh;
 	height: 6.5vh;
@@ -113,7 +114,7 @@
 	@include scroll-fade();
 	h2{
     	animation: fade 600ms $ease-out-quint both;
-		font-size: 35px;
+		font-size: 32px;
 		font-weight: normal;
 	}
 }
@@ -125,7 +126,7 @@
 	color: $green;
 	font-weight: bold;
 	font-size: 18px;
-	padding-right: 10vw;
+	padding-right: 6vw;
    	animation: pop 600ms $ease-out-quint both;
 }
 

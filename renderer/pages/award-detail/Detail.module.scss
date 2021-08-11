@@ -34,7 +34,7 @@
 	height: 6vh;
 }
 .content{
-	padding: 2vh 12vw 4vh 19.8vw ;
+	padding: 2vh 8vw 4vh 19.8vw ;
 	height: 62.35vh;
 }
 
@@ -74,7 +74,7 @@
 
 .body{
 	margin-top: 1vh;
-	width: 70vw;
+	width: 75vw;
 	font-size: 18px;
 	overflow-y: scroll;
 	line-height: 138%;
@@ -104,20 +104,22 @@
 }
 
 .tail{
-	padding: 3vh 12vw 4vh 19.8vw ;
+	display: block;
+	width:100%;
+	padding: 3vh 40vw 4vh 19.8vw ;
 	position: absolute;
 	bottom: 1.8vh;
 	left: 0;
 }
 
 .geometric{
-	height:10vh;
-	width: 30%;
+	height:11.5vh;
+	width: 33%;
 	position: absolute;
 	background-repeat: no-repeat;
 	background-size: contain;
-	bottom: 11vh;
-	right:6vw;
-	opacity:0.4;
-    animation: pop 600ms $ease-out-quint both;
+	background-position: center;
+	bottom: 7vh;
+	right:3.5vw;
+	opacity:0.3;
 }
