@@ -40,19 +40,44 @@ export default function HonorsLanding({data}){
   }
 
   function goToCurrentHighlight(){
-s    if(yearsWithDetails[currentItemIndex]){
-      router.push(`/award-detail/${yearsWithDetails[currentItemIndex].id}`)
+    if(yearsWithDetails[currentItemIndex]){
+      router.push(`/award-detail/${yearsWithDetails[currentItemIndex].detailView.id}`)
     }
   }
 
   useEffect(() => {
+    const initialParams = new URLSearchParams(location.search);
+    const initialScroll = parseInt(initialParams.get('scroll'), 10);
+    const initialAdaItem = initialParams.has('ada') ? parseInt(initialParams.get('ada'), 10) : null;
+
+    scrollParent.current.scrollTo(0, initialScroll);
+
+    const scrollHandler = () => {
+      const params = new URLSearchParams(location.search);
+      params.set('scroll', scrollParent.current.scrollTop);
+      router.replace(`${location.pathname}?${params}`, null, {shallow: true});
+    }
+    scrollParent.current.addEventListener('scroll', scrollHandler);
+
+    if(initialAdaItem){
+      setCurrentItemIndex(initialAdaItem);
+      clearTimeout(accessibilityTimer); 
+      setAccessibilityTimer(setTimeout(() => setCurrentItemIndex(null), 60000));
+    }
+  }, [scrollParent.current])
+
+  useEffect(() => {
+      const params = new URLSearchParams(location.search);
     if(currentItemIndex){
       const item = scrollParent.current.querySelectorAll('.detail-view')[currentItemIndex];
-      scrollParent.current.scrollTo({top: item.offsetTop, left: 0, behavior: 'smooth'});
+      scrollParent.current.scrollTo({top: item.offsetTop - item.offsetHeight - 100, left: 0, behavior: 'smooth'});
+      params.set('ada', currentItemIndex);
     }
     else {
       scrollParent.current.scrollTo({top:0, left: 0, behavior: 'smooth'});
+      params.delete('ada');
     }
+    router.replace(`${location.pathname}?${params}`, null, {shallow: true})
   }, [currentItemIndex])
 
   let detailYearIndex = 0;
