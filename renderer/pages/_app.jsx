@@ -14,7 +14,7 @@ export default function MyApp({Component, pageProps, menuItems}){
       if(window.resetTimer) clearTimeout(window.resetTimer);
       window.resetTimer = setTimeout(() => {
         router.push('/home');
-      }, 30000);
+      }, 60000 * 6);
     };
     document.addEventListener('touchstart', window.interruptResetTimer);
   }, []);

@@ -17,7 +17,6 @@ export default function SecretClose(){
     const onInput = (inp) => {
         if(inp === "{exit}"){
             if(input === '56623'){
-                console.log('LEAVING');
                 ipcRenderer.send('close-me');
             }
             setInput('');
@@ -32,7 +31,7 @@ export default function SecretClose(){
         <div className={styles.button} onClick={() => setIsOpen(true)} />
         {isOpen && <div className={styles.popup}>
             <div className={styles.wrapper}>
-                <div className={styles.display}>{input}</div>
+                <div className={styles.display}>{input.split('').map(() => '*')}</div>
                 <Keyboard 
                     display={{'{exit}': 'Exit App'}}
                     layout={{
