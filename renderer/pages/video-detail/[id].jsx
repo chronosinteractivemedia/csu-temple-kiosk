@@ -53,6 +53,7 @@ export default function VideoDetail({data, allData}){
               url={`https://www.vimeo.com/${data.vimeoId}`}
               playing={playing}
               onPlay={() => setPlaying(true)}
+              onProgress={() => window.interruptResetTimer()}
               onPause={() => setPlaying(false)}
               onEnded={() => setPlaying(false)}
               config={{
