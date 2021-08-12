@@ -12,7 +12,9 @@ export default function Nav({items}){
     })
   }, []);
 
-  return <div className={`${styles.component} ${isOpen ? styles.isOpen : ''}`}>
+  return <>
+    {isOpen && <div className={styles.cover} onClick={() => setIsOpen(false)} />}
+  <div className={`${styles.component} ${isOpen ? styles.isOpen : ''}`}>
     <div className={styles.body}>
       <ul className={styles.items}>
         {items.map(item => {
@@ -36,6 +38,6 @@ export default function Nav({items}){
       </ul>
     </div>
     <div className={styles.head} onClick={() => setIsOpen(!isOpen)} style={{backgroundImage: `url(/images/menutab${isOpen ? 'close' : ''}.svg)`}}></div>
-  </div>
+  </div></>
 }
 

@@ -8,26 +8,23 @@ import {ipcRenderer} from 'electron';
 
 export default function SecretClose(){
     const [isOpen, setIsOpen] = useState(false);
-    const [input, setInput] = useState();
+    const [input, setInput] = useState('');
 
     useEffect(() => {
-        setInput(null);
+        setInput('');
     }, [isOpen]);
 
-    useEffect(() => {
-        if(input === '5967'){
-        }
-    }, [input]);
-
     const onInput = (inp) => {
-        if(inp === "ExitApp"){
-            if(input === '5967'){
-                console.log('CLOSE');
-                ipcRenderer.emit('close-me');
+        if(inp === "{exit}"){
+            if(input === '56623'){
+                console.log('LEAVING');
+                ipcRenderer.send('close-me');
             }
-            setInput(null);
+            setInput('');
         } else if(inp === "Cancel") {
             setIsOpen(false);
+        } else {
+            setInput(input+inp);
         }
     }
 
@@ -35,17 +32,19 @@ export default function SecretClose(){
         <div className={styles.button} onClick={() => setIsOpen(true)} />
         {isOpen && <div className={styles.popup}>
             <div className={styles.wrapper}>
+                <div className={styles.display}>{input}</div>
                 <Keyboard 
-                layout={{
-                    'default': [
-                        '1 2 3',
-                        '4 5 6',
-                        '7 8 9',
-                        'Exit\sApp Cancel'
-                    ]
-                }} 
-                onKeyPress={onInput}
-                onChange={inp => setInput(inp)} />
+                    display={{'{exit}': 'Exit App'}}
+                    layout={{
+                        'default': [
+                            '1 2 3',
+                            '4 5 6',
+                            '7 8 9',
+                            'Cancel {exit}'
+                        ]
+                    }} 
+                    onKeyPress={onInput}
+                />
             </div>
         </div>} 
     </>

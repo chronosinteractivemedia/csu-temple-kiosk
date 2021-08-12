@@ -3,7 +3,6 @@ import { apiUrl } from '../config';
 import AttractLoops from '../components/AttractLoops/AttractLoops';
 import SecretClose from "../components/SecretClose/SecretClose";
 
-const ipc = ipcRenderer || false;
 export default function Home({data}) {
   return (
     <>

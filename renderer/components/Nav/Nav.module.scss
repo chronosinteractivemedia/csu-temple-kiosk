@@ -13,6 +13,15 @@
 		transform: translate3d(0,0,0);
 	}
 }
+.cover{
+	position: fixed;
+	top: 0vh;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index:299;
+	background-color: rgba(0,0,0,0.25);
+}
 .head{
 	height: 100%;
 	width: 163px;
@@ -21,6 +30,7 @@
 	background-repeat: no-repeat;
 	cursor: pointer;
 	position: relative;
+	z-index: 302;
 }
 .body{
 	width:75vw;
@@ -32,6 +42,8 @@
 	padding: 0 4vw;
 	display: flex;
 	align-items: center;
+	position: relative;
+	z-index: 302;
 }
 
 .items{

@@ -24,6 +24,8 @@
 	align-items: center;
 	justify-content: space-between;
 	color: $green;
+	position: relative;
+	z-index: 200;
 	padding: 1vh 5vw;
 	&.footer{
 		background-color: $green;
@@ -41,6 +43,7 @@
 	svg{
 		display: inline-block;
 		font-size: 60px;
+		pointer-events: none;
 	}
 	span{
 		display: block;
