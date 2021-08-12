@@ -4,7 +4,7 @@ import { useState } from 'react';
 import Keyboard from 'react-simple-keyboard';
 import 'react-simple-keyboard/build/css/index.css';
 import styles from './SecretClose.module.scss';
-import dynamic from 'next/dynamic'
+import {ipcRenderer} from 'electron';
 
 export default function SecretClose(){
     const [isOpen, setIsOpen] = useState(false);
@@ -20,13 +20,13 @@ export default function SecretClose(){
     }, [input]);
 
     const onInput = (inp) => {
-        if(inp === "CloseApp"){
+        if(inp === "ExitApp"){
             if(input === '5967'){
-                const electron = dynamic(() => import('electron'), {ssr: false});
-                const ipcRenderer = electron.ipcRenderer || false;
-                if(ipcRenderer) ipcRenderer.send('close-me');
                 console.log('CLOSE');
+                ipcRenderer.emit('close-me');
             }
+            setInput(null);
+        } else if(inp === "Cancel") {
             setIsOpen(false);
         }
     }
@@ -41,7 +41,7 @@ export default function SecretClose(){
                         '1 2 3',
                         '4 5 6',
                         '7 8 9',
-                        'CloseApp'
+                        'Exit\sApp Cancel'
                     ]
                 }} 
                 onKeyPress={onInput}
