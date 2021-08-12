@@ -12,32 +12,48 @@ export default function Nav({items}){
     })
   }, []);
 
-  return <>
-    {isOpen && <div className={styles.cover} onClick={() => setIsOpen(false)} />}
-  <div className={`${styles.component} ${isOpen ? styles.isOpen : ''}`}>
-    <div className={styles.body}>
-      <ul className={styles.items}>
-        {items.map(item => {
-          if(item.listView){
-            return <>
-              <li><Link href={`/list/${item.listView.id}`} passHref><a>{item.title}</a></Link></li>
-            </>
-          } else {
-            return <>
-              <li><Link href={item.path} passHref><a>{item.title}</a></Link></li>
-            </>
-          }
-        })}
-        {/* <li><Link href="/home" passHref><a>Home</a></Link></li>
-        <li><Link href="/list/5" passHref><a>Autism</a></Link></li>
-        <li><Link href="/list/3" passHref><a>Biography</a></Link></li>
-        <li><Link href="/list/6" passHref><a>Tg Equine Center</a></Link></li>
-        <li><Link href="/landing/video" passHref><a>Videos</a></Link></li>
-        <li><Link href="/landing/publications" passHref><a>Publications</a></Link></li>
-        <li><Link href="/landing/honors" passHref><a>Honors</a></Link></li> */}
-      </ul>
-    </div>
-    <div className={styles.head} onClick={() => setIsOpen(!isOpen)} style={{backgroundImage: `url(/images/menutab${isOpen ? 'close' : ''}.svg)`}}></div>
-  </div></>
+  return (
+    <>
+      {isOpen && (
+        <div className={styles.cover} onClick={() => setIsOpen(false)} />
+      )}
+      <div className={`${styles.component} ${isOpen ? styles.isOpen : ""}`}>
+        <div className={styles.body}>
+          <ul className={styles.items}>
+            {items.map((item) => {
+              if (item.listView) {
+                return (
+                  <>
+                    <li>
+                      <Link href={`/list/${item.listView.id}`} passHref>
+                        <a>{item.title}</a>
+                      </Link>
+                    </li>
+                  </>
+                );
+              } else {
+                return (
+                  <>
+                    <li>
+                      <Link href={item.path} passHref>
+                        <a>{item.title}</a>
+                      </Link>
+                    </li>
+                  </>
+                );
+              }
+            })}
+          </ul>
+        </div>
+        <div
+          className={styles.head}
+          onClick={() => setIsOpen(!isOpen)}
+          style={{
+            backgroundImage: `url(/images/menutab${isOpen ? "close" : ""}.svg)`,
+          }}
+        ></div>
+      </div>
+    </>
+  );
 }
 
