@@ -230,6 +230,7 @@ $spacing: 84px;
 	line-height: 381%;
 	border-radius: 100%;
 	font-weight: bold;
+	padding-top: 3px;
 	.hasDetail &{
 		background-color: $green;
 		color: $white;
@@ -274,5 +275,9 @@ $spacing: 84px;
 		line-height: 150%;
 		background-color: $white;
 		box-shadow: 1px 5px 5px rgba(0,0,0,0.1);
+	}
+	.isActive &{
+		outline: 2px solid $green;
+		
 	}
 }

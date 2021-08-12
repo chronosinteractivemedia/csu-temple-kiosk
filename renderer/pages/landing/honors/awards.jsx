@@ -1,7 +1,7 @@
 import Image from '../../../components/Image/Image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { BsTriangleFill } from 'react-icons/bs';
 import { Footer } from '../../../components/Footer/Footer';
 import Tabs from '../../../components/Tabs/Tabs';
@@ -13,6 +13,9 @@ export default function HonorsLanding({data}){
   const [accessibilityTimer, setAccessibilityTimer] = useState();
   const router = useRouter();
   const scrollParent = useRef();
+
+  data.allAwards.sort((a,b) => b.year - a.year);
+  const yearsWithDetails = data.allAwards.filter(o => !!o.detailView);
 
 	function _getGeometricUrl(){
 		switch(data.graphicStyle){
@@ -28,7 +31,7 @@ export default function HonorsLanding({data}){
       setCurrentItemIndex(0);
     } else {
       const newStep = currentItemIndex + step;
-      if(newStep > -1 && newStep < data.featuredAwards.length){
+      if(newStep > -1 && newStep < yearsWithDetails.length){
         setCurrentItemIndex(newStep);
       }
     }
@@ -37,13 +40,47 @@ export default function HonorsLanding({data}){
   }
 
   function goToCurrentHighlight(){
-    if(currentGroup.detailViews[currentItemIndex]){
-      // router.push(`/detail/${currentGroup.detailViews[currentItemIndex].id}`)
+    if(yearsWithDetails[currentItemIndex]){
+      router.push(`/award-detail/${yearsWithDetails[currentItemIndex].detailView.id}`)
     }
   }
 
-  data.allAwards.sort((a,b) => b.year - a.year);
+  useEffect(() => {
+    const initialParams = new URLSearchParams(location.search);
+    const initialScroll = parseInt(initialParams.get('scroll'), 10);
+    const initialAdaItem = initialParams.has('ada') ? parseInt(initialParams.get('ada'), 10) : null;
 
+    scrollParent.current.scrollTo(0, initialScroll);
+
+    const scrollHandler = () => {
+      const params = new URLSearchParams(location.search);
+      params.set('scroll', scrollParent.current.scrollTop);
+      router.replace(`${location.pathname}?${params}`, null, {shallow: true});
+    }
+    scrollParent.current.addEventListener('scroll', scrollHandler);
+
+    if(initialAdaItem){
+      setCurrentItemIndex(initialAdaItem);
+      clearTimeout(accessibilityTimer); 
+      setAccessibilityTimer(setTimeout(() => setCurrentItemIndex(null), 60000));
+    }
+  }, [scrollParent.current])
+
+  useEffect(() => {
+      const params = new URLSearchParams(location.search);
+    if(currentItemIndex){
+      const item = scrollParent.current.querySelectorAll('.detail-view')[currentItemIndex];
+      scrollParent.current.scrollTo({top: item.offsetTop - item.offsetHeight - 100, left: 0, behavior: 'smooth'});
+      params.set('ada', currentItemIndex);
+    }
+    else {
+      scrollParent.current.scrollTo({top:0, left: 0, behavior: 'smooth'});
+      params.delete('ada');
+    }
+    router.replace(`${location.pathname}?${params}`, null, {shallow: true})
+  }, [currentItemIndex])
+
+  let detailYearIndex = 0;
 	return (
     <div className={styles.component}>
       <div className={styles.hero}>
@@ -75,11 +112,13 @@ export default function HonorsLanding({data}){
         <div className={styles.tlItems} ref={scrollParent}>
           {data.allAwards.map((award) => {
             if (award.detailView) {
+              let isActive = detailYearIndex === currentItemIndex;
+              detailYearIndex++;
               return (
                 <Link href={`/award-detail/${award.detailView.id}?year=${award.year}`}>
                   <div
                     key={award.id}
-                    className={`${styles.tlItem} ${styles.hasDetail}`}
+                    className={`${styles.tlItem} ${styles.hasDetail} detail-view ${isActive ? styles.isActive : ''}`}
                   >
                     <div className={styles.tlYear}>{award.year}</div>
                     <div className={styles.tlSummary}>
