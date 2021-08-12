@@ -35,6 +35,7 @@ export default function ListView({data}){
     } else {
 			setCurrentGroup(data.listItems[0]);
     }
+    setCurrentItemIndex(0);
 	}, [data]);
 
   useEffect(() => {
