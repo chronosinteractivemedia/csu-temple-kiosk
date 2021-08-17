@@ -43,7 +43,7 @@ export default function AttractLoops({screens}){
           {!!currentScreen.largeQuote && (
             <h2 key={currentScreen.largeQuote}>{currentScreen.largeQuote}</h2>
           )}
-          {!!currentScreen.smallQuote && (
+          {!!currentScreen.smallQoute && (
             <p key={currentScreen.smallQoute}>{currentScreen.smallQoute}</p>
           )}
         </div>
