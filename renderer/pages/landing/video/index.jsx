@@ -107,5 +107,8 @@ export async function getStaticProps(context) {
   const res = await fetch(`${apiUrl}/video-landing`);
   const data = await res.json();
   if (!data) return { notFound: true };
-  return { props: { data } };
+  return {
+    props: { data },
+    revalidate: process && process.env && process.env.IS_SERVER ? 10 : false, //if running on server
+  };
 }

@@ -161,18 +161,21 @@ export default function ListView({data}){
   );
 }
 
-export async function getStaticProps(context){
+export async function getStaticProps(context) {
   const res = await fetch(`${apiUrl}/list-views/${context.params.id}`);
   const data = await res.json();
-  if(!data) return {notFound: true};
-  return { props: {data} }
+  if (!data) return { notFound: true };
+  return {
+    props: { data },
+    revalidate: process && process.env && process.env.IS_SERVER ? 10 : false, //if running on server
+  };
 }
 
-export async function getStaticPaths(){
+export async function getStaticPaths() {
   const res = await fetch(`${apiUrl}/list-views`);
   const data = await res.json();
   return {
-    paths: data.map(o => ({params: {id: `${o.id}`}})),
-    fallback: false
-  }
+    paths: data.map((o) => ({ params: { id: `${o.id}` } })),
+    fallback: false,
+  };
 }

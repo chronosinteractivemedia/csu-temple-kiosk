@@ -251,5 +251,8 @@ export async function getStaticProps(context) {
   const pubsRes = await fetch(`${apiUrl}/publications?_limit=1000&_sort=id:ASC`);
   const pubsData = await pubsRes.json();
   if (!data) return { notFound: true };
-  return { props: { data, pubsData } };
+  return {
+    props: { data, pubsData },
+    revalidate: process && process.env && process.env.IS_SERVER ? 10 : false, //if running on server
+  };
 }

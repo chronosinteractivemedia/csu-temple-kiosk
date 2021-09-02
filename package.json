@@ -14,6 +14,8 @@
     "wait": "node ./automation/wait.js",
     "grab:media": "node ./automation/grab-media.js",
     "check:connection": "node ./automation/check-connection.js",
+    "build:server": "IS_SERVER=true next build ./renderer",
+    "run:server": "IS_SERVER=true next start ./renderer -p $PORT",
     "build": "nextron build",
     "build:all": "nextron build --all",
     "build:win32": "nextron build --win --ia32",
