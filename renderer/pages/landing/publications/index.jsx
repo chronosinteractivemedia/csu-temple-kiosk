@@ -253,6 +253,6 @@ export async function getStaticProps(context) {
   if (!data) return { notFound: true };
   return {
     props: { data, pubsData },
-    revalidate: process && process.env && process.env.IS_SERVER ? 10 : false, //if running on server
+    revalidate: process && process.env && process.env.IS_SERVER ? 1 : false, //if running on server
   };
 }
