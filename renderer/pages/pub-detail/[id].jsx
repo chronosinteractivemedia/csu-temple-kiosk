@@ -7,11 +7,13 @@ import QrDisplay from "../../components/QrDisplay/QrDisplay";
 import { Footer } from "../../components/Footer/Footer";
 import Crumb from "../../components/Crumb/Crumb";
 import Scroller from "../../components/Scroller/Scroller";
+import { useRouter } from "next/router";
 
 export default function DetailView({ data }) {
 
   const [mediaPlaying, setMediaPlaying] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const router = useRouter();
 
   function _getGraphicUrl() {
     return `/images/animals/${data.graphicStyle}.svg`;
@@ -28,7 +30,11 @@ export default function DetailView({ data }) {
         }
       }
   };
-  console.log(data.images.length)
+
+  if (router.isFallback) {
+    return <div>Loading...</div>
+  }
+
   return (
     <div className={styles.component}>
       <div className={styles.hero}>

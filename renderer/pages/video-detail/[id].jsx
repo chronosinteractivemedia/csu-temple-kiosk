@@ -19,6 +19,10 @@ export default function VideoDetail({ data, allData }) {
   const [playing, setPlaying] = useState();
   const router = useRouter();
 
+  if (router.isFallback) {
+    return <div>Loading...</div>
+  }
+
   const thisIndex = allData.findIndex((o) => o.id === data.id);
 
   function _getGraphicUrl() {

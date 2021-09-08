@@ -17,6 +17,8 @@ export default function DetailView({ data }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const router = useRouter();
 
+
+  
   const year = router.query.year;
 
   function _getGraphicUrl() {
@@ -39,6 +41,10 @@ export default function DetailView({ data }) {
         }
       }
   };
+
+  if (router.isFallback) {
+    return <div>Loading...</div>
+  }
 
   return (
     <div className={styles.component}>

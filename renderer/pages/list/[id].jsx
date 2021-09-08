@@ -76,6 +76,10 @@ export default function ListView({data}){
     }
   }
 
+  if (router.isFallback) {
+    return <div>Loading...</div>
+  }
+
 	return (
     <div className={styles.component}>
       <div className={styles.hero}>
