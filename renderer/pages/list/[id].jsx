@@ -176,6 +176,6 @@ export async function getStaticPaths() {
   const data = await res.json();
   return {
     paths: data.map((o) => ({ params: { id: `${o.id}` } })),
-    fallback: false,
+    fallback: true,
   };
 }
