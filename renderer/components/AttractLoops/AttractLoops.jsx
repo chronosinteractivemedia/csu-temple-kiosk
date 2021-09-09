@@ -16,7 +16,7 @@ export default function AttractLoops({screens}){
 			} else {
 				setCurrentIndex(0);
 			}
-		},10000);
+		},15000);
 		return () => clearInterval(interval);
 	}, [currentIndex]);
 

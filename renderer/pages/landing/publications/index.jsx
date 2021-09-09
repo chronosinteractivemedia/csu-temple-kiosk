@@ -167,7 +167,7 @@ export default function PublicationsLanding({data, pubsData}){
             <Scroller>
               {filteredPubs.map((pubGroup) => (
                 <div key={pubGroup.name} className={styles.pubGroup}>
-                  <h3>{pubGroup.name}</h3>
+                  <h3>{pubGroup.name} ({pubGroup.items.length})</h3>
                   {pubGroup.items.map((pub) => (
                     <div key={pub.id} className={styles.pubItem}>
                       <ReactMarkdown children={pub.body} />
