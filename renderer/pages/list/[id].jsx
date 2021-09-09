@@ -104,11 +104,6 @@ export default function ListView({data}){
         <div className={styles.heading}>
           {!!currentGroup && (
             <>
-              {!currentGroup.bigSummary && !!currentGroup.category && (
-                <h2 className={styles.summaryHead} key={currentGroup.category}>
-                  {currentGroup.category}
-                </h2>
-              )}
               {!!currentGroup.bigSummary && (
                 <h2 className={styles.summaryHead} key={currentGroup.summary}>
                   {currentGroup.summary}
