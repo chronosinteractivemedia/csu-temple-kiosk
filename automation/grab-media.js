@@ -40,7 +40,7 @@ function download(url, dest) {
 }
 
 (async () => {
-    let images = await axios.get('https://csu-tg-cms.onrender.com/upload/files');
+    let images = await axios.get('https://csu-tg-cms.onrender.com/upload/files?_limit=-1');
     images = images.data;
     let i = 1;
     for(let image of images){

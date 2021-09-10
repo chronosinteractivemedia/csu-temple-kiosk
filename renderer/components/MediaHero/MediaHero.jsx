@@ -22,6 +22,7 @@ export default function MediaHero({
               url={`https://www.vimeo.com/${vimeoId}`}
               playing={playing}
               onPlay={() => setPlaying(true)}
+              onProgress={() => window.interruptResetTimer()}
               onPause={() => setPlaying(false)}
               onEnded={() => setPlaying(false)}
               config={{
