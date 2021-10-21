@@ -1,2 +1,2 @@
-npm run safesync
-cmd /k
+cmd /k npm run safesync
+
